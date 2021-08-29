@@ -2,26 +2,42 @@
     list-style: none;
     box-sizing: border-box;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    font-weight: 700;
+    overflow-x: hidden;
 }
 
-li {
-    min-width: 378px;
-    height: 212px;
+
+
+.rolling-banner-lists{
+    display: flex;
+    white-space:normal;
+    overflow: auto;
 }
+
+.rolling-banner-lists::-webkit-scrollbar{
+    display: none;
+}
+    
 
 .rolling-banner-items.mile {
-    display: inline-flex;
+    display: flex;
+    flex-shrink: 0;
     flex-direction: column;
+    width: 378px;
+    height: 212px;
     margin: 15px 10px;
     padding: 20px;
-    background: rgb(255, 158, 148);
     border-radius: 20px;
     overflow: hidden;
+    background: rgb(255, 158, 148);    
 }
 
 .rolling-banner-items.paradigm {
-    display: inline-flex;
+    display: flex;
+    flex-shrink: 0;
     flex-direction: column;
+    width: 378px;
+    height: 212px;
     margin: 15px 10px;
     padding: 20px;
     background: rgb(255, 199, 43);
@@ -30,25 +46,29 @@ li {
 }
 
 .rolling-banner-items.detail {
-    display: inline-flex;
+    display: flex;
+    flex-shrink: 0;
     flex-direction: column;
+    width: 378px;
+    height: 212px;
     margin: 15px 10px;
     padding: 20px;
     border-radius: 20px;
     overflow: hidden;
-    display: inline-flex;
-    background: rgb(0, 160, 78);
+       background: rgb(0, 160, 78);
 
 }
 
 .rolling-banner-items.obssei {
-    display: inline-flex;
+    display: flex;
+    flex-shrink: 0;
     flex-direction: column;
+    width: 378px;
+    height: 212px;
     margin: 15px 10px;
     padding: 20px;
     border-radius: 20px;
     overflow: hidden;
-    display: inline-flex;
     background: rgb(255, 158, 148);
 }
 
