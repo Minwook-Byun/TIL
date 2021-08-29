@@ -1,6 +1,7 @@
 * {
     list-style: none;
     box-sizing: border-box;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
 
 li {
@@ -37,7 +38,7 @@ li {
     overflow: hidden;
     display: inline-flex;
     background: rgb(0, 160, 78);
-    
+
 }
 
 .rolling-banner-items.obssei {
@@ -51,12 +52,12 @@ li {
     background: rgb(255, 158, 148);
 }
 
-.rolling-banner--con{
+.rolling-banner--con {
     margin-bottom: 9px;
 }
 
-.rolling-banner--title{
-    margin-bottom:97px;
+.rolling-banner--title {
+    margin-bottom: 97px;
 }
 
 .rolling-banner {
