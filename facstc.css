@@ -1,0 +1,152 @@
+html {
+    font-size: 10px;
+  }
+  body {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.4rem;
+    line-height: normal;
+    color: black;
+  }
+  .main {
+    box-sizing: border-box;
+    width: 980px;
+    padding: 20px;
+    margin: 0 auto;
+    background: lightgray;
+  }
+  .main-heading {
+    text-align: center;
+    font-size: 2rem;
+  }
+  section {
+    width: 100%;
+    margin: 20px 0;
+    background: lightsteelblue;
+  }
+  .heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: blue;
+  }
+  
+  
+  
+  /* 문제 1 */
+  .news-link {
+    display: block;
+    box-sizing: border-box;
+    background: teal;
+    width: 50%;
+    margin-top: 10px;
+    padding: 10px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 12px;
+  }
+  .news-item {
+    position: relative;
+    width: auto;
+    height: 100px;
+    padding-left: 130px;
+    background: yellowgreen;
+  }
+  .news-item-heading {
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .news-item-brief {
+    margin-top: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .news-item-thumbnail {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 120px;
+  }
+  
+  /* 문제 2 */
+  .float-container {
+    overflow: hidden;
+  }
+  .float-item {
+    float: left;
+    width: 50%;
+  }
+  .news-link2 {
+    display: block;
+    width: 100%;
+    clear: both;
+  }
+  
+  /* 문제 3 */
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: auto;
+    height: 600px;
+    background: yellowgreen;
+  }
+  .flex-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    background: tomato;
+    border: 2px dashed red;
+  }
+  
+  /* 문제 4 */
+  .smile-face {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 50%;
+    background: no-repeat center/200% url("./smile.jpg");
+    animation: move 2s linear infinite alternate;
+    animation-delay: 1s;
+  }
+  
+
+
+  .smile-face:hover {
+    animation-play-state: paused;
+  }
+  @keyframes move {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    25% {
+      transform: translateX(100px) rotate(90deg);
+    }
+    50% {
+      transform: translateX(200px) rotate(180deg);
+    }
+  
+    75% {
+      transform: translateX(300px) rotate(270deg);
+    }
+  
+    100% {
+      transform: translateX(400px) rotate(360deg);
+    }
+  }
+
+  /* TIL정리 */
+  /* jpg는 확대하고 border radius로 배경을 깎아(?)버릴 수 있다  */
+  /* 귀찮다고 0과 100만 설정해주면 rotate가 작동하지 않는다. 25, 50, 75는 설정해주고 이걸 템플릿처럼 가지고 있자!*/
+  
