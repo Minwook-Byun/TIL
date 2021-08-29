@@ -1,0 +1,65 @@
+* {
+    list-style: none;
+    box-sizing: border-box;
+}
+
+li {
+    min-width: 378px;
+    height: 212px;
+}
+
+.rolling-banner-items.mile {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 15px 10px;
+    padding: 20px;
+    background: rgb(255, 158, 148);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.rolling-banner-items.paradigm {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 15px 10px;
+    padding: 20px;
+    background: rgb(255, 199, 43);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.rolling-banner-items.detail {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 15px 10px;
+    padding: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: inline-flex;
+    background: rgb(0, 160, 78);
+    
+}
+
+.rolling-banner-items.obssei {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 15px 10px;
+    padding: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: inline-flex;
+    background: rgb(255, 158, 148);
+}
+
+.rolling-banner--con{
+    margin-bottom: 9px;
+}
+
+.rolling-banner--title{
+    margin-bottom:97px;
+}
+
+.rolling-banner {
+    display: block;
+
+}
