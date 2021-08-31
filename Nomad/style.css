@@ -1,18 +1,3 @@
-body {
-    width: 100%;
-    height: 100%;
-    color: white;
-  }
-  
-  .mobile-size {
-    background-color: #3498db;
-  }
-  
-  .tablet-size {
-    background-color: #9b59b6;
-  }
-  
-  .desktop-size {
-    background-color: #f39c12;
-  }
-  
+.hidden{
+   display: none;
+}
