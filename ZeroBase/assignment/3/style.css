@@ -1,44 +1,46 @@
 .container {
-    width: 400px;
-    display: flex;
-    /* 코드 작성 */
-  }
-  
-  .item {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .item:nth-child(1) {
-    background-color: pink;
-    /* 코드 작성 */
-  }
-  
-  .item:nth-child(2) {
-    background-color: yellow;
-  }
-  
-  .item:nth-child(3) {
-    background-color: lightGreen;
-  }
-  
-  .item:nth-child(4) {
-    background-color: skyBlue;
-    /* 코드 작성 */
-  }
-  
-  .item:nth-child(5) {
-    background-color: lightGrey;
-    /* 코드 작성 */
-  }
-  
-  .item:nth-child(6) {
-    background-color: lightCoral;
-    /* 코드 작성 */
-  }
-  
-  .item:nth-child(7) {
-    background-color: violet;
-    /* 코드 작성 */
-  }
-  
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+}
+
+.item:nth-child(1) {
+  background-color: pink;
+  flex-basis: 50%;
+  flex-shrink: 1;
+  order: 1;
+}
+
+.item:nth-child(2) {
+  background-color: yellow;
+}
+
+.item:nth-child(3) {
+  background-color: lightGreen;
+}
+
+.item:nth-child(4) {
+  background-color: skyBlue;
+  order: 2;
+}
+
+.item:nth-child(5) {
+  background-color: lightGrey;
+  order: 3;
+}
+
+.item:nth-child(6) {
+  background-color: lightCoral;
+  order: 4;
+}
+
+.item:nth-child(7) {
+  background-color: violet;
+  order: 5;
+}
