@@ -21,16 +21,16 @@ const colors = [
 const clickButton = document.querySelector("button"); //get button 
 
 function changeBackground() {
-    const randomColorsInt1 = (Math.floor(Math.random() * colors.length)); //refactoring 
+    const randomColorsInt1 = (Math.floor(Math.random() * colors.length)); 
     const randomColorsInt2 = (Math.floor(Math.random() * colors.length));
     
     //assign Int
-    const startColor = colors[randomColorsInt1]; //gradient start color
-    const endColor = colors[randomColorsInt2]; // gradient end color
+    const startColor = colors[randomColorsInt1]; //gradient start-color
+    const endColor = colors[randomColorsInt2]; // gradient end-color
     
     //set gradient
     const gradientColors = (`linear-gradient(to right, ${startColor}, ${endColor})`)
-    document.body.style.background = gradientColors //` `과 style 선언하는 것에 대한 이해자체가 되고 복붙을 해야지!!!!
+    document.body.style.background = gradientColors //
 
 }
 

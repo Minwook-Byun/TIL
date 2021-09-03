@@ -9,4 +9,55 @@
 }
 
 //컴파일되지 않는 주석 
-/* 컴파일 되는 주석 */ 
+/* 컴파일 되는 주석 */
+
+
+// 데이터 종류: 숫자, 문자, 색상 표현, 불린, null, lists, Maps 
+// Lists: 공백이나 , 로 구분된 값의 목록 (array 같은 개념) (apple, orange, banana)
+// Maps : object와 유사, 그래서 key : value의 형태로 저장
+
+
+// 중첩: Nesting (&가 상위 부모 요소를 치환해준다고 생각하면 된당!) 
+.btn {
+    width: 100px;
+    height: 100px;
+
+    &.active {
+        color: red;
+    }
+}
+
+li {
+    &:last-child {
+        display: flex;
+    }
+}
+
+.fs {
+    &-small {
+        font-size: 14px;
+    }
+
+    &-medium {
+        font-size: 16px;
+    }
+
+    &-large {
+        font-size: 18px;
+    }
+}
+
+
+//@at-root(중첩 벗어나기) 
+
+// $는 변수를 의미! 
+$primary-color: #e96900;
+$url-images: "/assets/images";
+$width: 200px;
+
+.box {
+    width: $width;
+    margin-left: $width;
+    background-color: $primary-color;
+}
+
