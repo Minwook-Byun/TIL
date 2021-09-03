@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+    list-style: none;
+  }
+  
+  ul {
+    padding: 0;
+  }
+  
+  .container {
+    width: 500px;
+    background-color: #dfdfdf;
+    /* 코드 작성 */
+  }
+  
+  .header {
+    background-color: pink;
+    width: 100%;
+  }
+  
+  .nav {
+    background-color: yellow;
+    width: 100%;
+  }
+  
+  /* 추가 CSS 코드 작성 */
+  
+  .sign {
+    width: 100%;
+  }
+  
+  /* 추가 CSS 코드 작성 */
+  
+  .main,
+  .aside {
+    height: 300px;
+  }
+  
+  .main {
+    background-color: lightGreen;
+    width: 350px;
+    padding: 10px;
+    /* 코드 작성 */
+  }
+  
+  section {
+    width: 50%;
+  }
+  
+  .section1 {
+    background-color: green;
+  }
+  
+  .section2 {
+    background-color: khaki;
+  }
+  
+  .aside {
+    background-color: coral;
+    width: 150px;
+  }
+  
+  .footer {
+    background-color: lightGrey;
+    width: 100%;
+    height: 50px;
+  }
+  

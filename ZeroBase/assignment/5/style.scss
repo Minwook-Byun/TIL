@@ -1,0 +1,18 @@
+* {
+    list-style: none;
+  }
+  
+  ul {
+    background-color: lightgray;
+    width: 300px;
+    padding: 0;
+    /* 코드 작성 */
+  
+    li {
+      background: #444;
+      color: #fff;
+      /* 코드 작성 */
+      display: flex;
+    }
+  }
+  

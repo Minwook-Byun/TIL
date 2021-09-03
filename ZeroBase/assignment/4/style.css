@@ -1,0 +1,34 @@
+.container {
+    display: grid;
+    /* 단축속성 grid: 로 선언하고 코드를 작성하세요 */
+  }
+  
+  .container > * {
+    border: 1px solid black;
+  }
+  
+  .item:nth-child(1) {
+    background-color: pink;
+    /* grid 속성을 활용하여 위치를 잡아줍니다 */
+  }
+  
+  .item:nth-child(2) {
+    background-color: yellow;
+  }
+  
+  .item:nth-child(3) {
+    background-color: lightGreen;
+  }
+  
+  .item:nth-child(4) {
+    background-color: skyBlue;
+  }
+  
+  .item:nth-child(5) {
+    background-color: lightGrey;
+  }
+  
+  .item:nth-child(6) {
+    background-color: lightCoral;
+  }
+  
