@@ -1,12 +1,12 @@
 
-
 function Timer() {
     const clock = document.querySelector("#clock");
     const time = new Date();
-    const hours = time.getHours(); // 시
-    const minutes = time.getMinutes(); // 분
-    const seconds = time.getSeconds(); // 초
+    const hours = String(time.getHours()).padStart(2,"0"); // 시
+    const minutes = String(time.getHours()).padStart(2,"0"); // 분
+    const seconds = String(time.getSeconds()).padStart(2,"0"); // 초
     clock.innerText = `${hours} : ${minutes} : ${seconds}`;
 }
 
+Timer();
 setInterval(Timer,1000)
