@@ -1,17 +1,258 @@
 /* welcome - text */
+@import url('//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.521/neodgm/style.css');
 
-
-
-
-
-
-.Random-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
+html {
+    font-size: 16px;
 }
+
+.hidden {
+    display: none;
+}
+
+body {
+    position: relative;
+    font-family: 'NeoDunggeunmo';
+    color: whitesmoke;
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+}
+
+img {
+    z-index: -9999;
+}
+
+input,
+button {
+    cursor: pointer
+}
+
+input::-webkit-input-placeholder {
+    font-family: 'NeoDunggeunmo';
+    color: whitesmoke;
+    padding: 10px;
+
+}
+
+/* welcom text */
+
+.welcome-text {
+    position: relative;
+    top: 15rem;
+    left: 35rem;
+    width: 100%;
+    height: 100px;
+    font-size: 3rem;
+
+}
+
+.typing-txt {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+/* user time */
+
+
+.clock-space #clock {
+    display: block;
+    position: fixed;
+    top: 90%;
+    left: 90%;
+    color: #FDF5CA;
+    font-size: 1.5rem;
+}
+
+#greeting {
+    position: fixed;
+    width: 100px;
+    top: 95%;
+    left: 92.5%;
+    font-size: 20px;
+    text-align: center;
+
+}
+
+/* login-form */
+#login-form {
+    display: block;
+    position: fixed;
+    /* position: absolute; */
+    left: 70%;
+    top: 90%;
+    margin-bottom: 100px;
+}
+
+#login-form input {
+    color: whitesmoke;
+}
+
+#login-form input:first-child {
+    display: inline-block;
+    width: 15rem;
+    height: 2rem;
+    padding-right: 10px;
+    border: 1px solid whitesmoke;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+
+#login-form input:last-child {
+    font-family: 'NeoDunggeunmo';
+    height: 2.3rem;
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+#login-form input:last-child:hover {
+    background-color: whitesmoke;
+    color: black;
+    transition: 0.5s;
+}
+
+/* weather */
 
 #weather {
-    display: flex;
+    display: inline-block;
+    position: fixed;
+    width: auto;
+    max-height: 100px;
+    top: 83%;
+    border: 1px solid whitesmoke;
+    padding: 20px;
+    border-radius: 8px;
 }
+
+#weather:hover {
+    background-color: whitesmoke;
+    color: black;
+    transition: 1s;
+}
+
+
+#weather span {
+    font-size: 1.5rem;
+}
+
+#weather .user-city {
+    font-size: 1rem;
+}
+
+
+/* todo */
+#todo-form {
+    display: inline-block;
+    max-width: 500px;
+    height: 100%;
+    position: absolute;
+    top: 20rem;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid whitesmoke;
+    margin-bottom: 100px;
+}
+
+#todo-form input {
+    font-family: 'NeoDunggeunmo';
+    width: 15rem;
+    height: 2rem;
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+
+#todo-form button {
+    font-family: 'NeoDunggeunmo';
+    height: 2.3rem;
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#todo-form button:hover {
+    background-color: whitesmoke;
+    color: black;
+    transition: 0.5s;
+}
+
+#todo-form li>button {
+    height: 1.5rem;
+    border: none;
+    margin-left: 1rem;
+}
+
+#todo-List>li{
+    margin-bottom: 4px;
+}
+
+#todo-List>li:hover{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* book-form */
+
+.bookmark-form {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    /* transform: translateY(100%); */
+}
+
+#bookmark-form input {
+    display: block;
+    font-family: 'NeoDunggeunmo';
+    left: 50%;
+    transform: translateX(-25%);
+    width: 60rem;
+    height: 5rem;
+    margin-bottom: 10px;
+    border: 3px solid whitesmoke;
+    color: whitesmoke;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+#bookmark-form input::-webkit-input-placeholder {
+    font-family: 'NeoDunggeunmo';
+    color: whitesmoke;
+    font-size: 2rem;
+    text-align: center;
+    padding: 10px;
+
+}
+
+#bookmark-form button {
+    position: relative;
+    left:25%;
+    transform: translateX(-50%);
+    font-family: 'NeoDunggeunmo';
+    width: 10rem;
+    height: 2.3rem;
+    border: 3px solid whitesmoke;
+    color: whitesmoke;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+
+#bookmark-form button:hover {
+    background-color: black;
+    border-color: black;
+    color: whitesmoke;
+    transition: 0.5s;
+}
+
