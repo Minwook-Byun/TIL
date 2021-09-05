@@ -18,4 +18,4 @@ function typing(){
     }
 }
 
-setInterval(typing,150);
+setInterval(typing,125);
