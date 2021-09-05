@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.521/neodgm/style.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/Dalgona/neodgm-webfont@1.521/neodgm_code/style.css">
     <title>To-Do-List</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="./style.css">
@@ -12,37 +14,48 @@
 
 <body>
     <section class="welcome-text">
-        <h1>ladies and gentlemen, we are floating in space </h1>
+        <h1 class="typing-txt"></h1>
+
+        <div class="clock-space">
+            <h2 id=clock>00:00:00</h2>
+            <h3 id="greeting" class="hidden">
+            </h3>
+        </div>
+
+        <form class="hidden" id="login-form">
+            <input required maxlength="15" type="text" placeholder="Passport number" />
+            <input type="submit" value="Log-In" />
+        </form>
     </section>
-
-
-    <section class="uesr-time">
-        <h1 id=clock>00:00:00</h1>
-    </section>
-
-
-    <section>
-        <form id="login-form">
-            <form class="hidden" id="login-form">
-                <input required maxlength="15" type="text" placeholder="What is your name?" />
-                <input type="submit" value="Log In" />
-            </form>
-            <h1 id="greeting" class="hidden"></h1>
-    </section>
-
-
-    <form id="todo-form">
-        <input type="text" required placeholder="">
-        <button id="add-Button">button</button>
-        <ul id="todo-List"></ul>
-    </form>
-
 
     <section id="weather">
-        <h1>Today's Weather</h1> 
-        <span class="user-weather"></span>
+        <div class="weather-top">
+            <h1>Today's Weather</h1>
+            <span class="user-weather"></span>
+        </div>
+        <br />
+        <h1>Passenger's Location</h1>
         <span class="user-city"></span>
     </section>
+
+    <section class="todo-form">
+        <form id="todo-form">
+            <input type="text" required placeholder="Add To-do itmes">
+            <button id="add-Button">button</button>
+            <ul id="todo-List"></ul>
+        </form>
+    </section>
+
+    <section class="bookmark-form">
+        <form id="bookmark-form">
+            <input type="text" required placeholder="&quot; Add your today's insight &quot;">
+            <button id="add-Button">Add</button>
+            <ul id="bookmark-List"></ul>
+        </form>
+    </section>
+
+
+    <script src="./src/JS/typing.js"></script>
     <script src="./src/JS/background.js"></script>
     <script src="./src/JS/clock.js"></script>
     <script src="./src/JS/login.js"></script>
