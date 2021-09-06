@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "node-sass":"node-sass styles/main.scss style.css -rw"
+    "node-sass":"node-sass -wr styles/main.scss style.css"
   },
   "keywords": [],
   "author": "",
@@ -14,3 +14,4 @@
     "node-sass": "^6.0.1"
   }
 }
+

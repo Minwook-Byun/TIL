@@ -1,2 +1,48 @@
-p {
-  color: red; }
+html {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px; }
+
+.global-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 70px;
+  padding: 1rem;
+  font-size: 2rem;
+  z-index: 9999;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  background-color: transparent; }
+  .global-nav .global-nav-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: start;
+    height: 100%;
+    width: auto; }
+  .global-nav .logo {
+    float: left;
+    font-size: 0.5rem; }
+  .global-nav .section-title {
+    margin: 0 auto; }
+
+#scroll-section-0 {
+  padding-top: 100px;
+  width: auto;
+  height: 100%; }
+  #scroll-section-0 .sticky-items .sticky-elememnt {
+    position: fixed;
+    font-size: 1.5rem;
+    padding-top: 50vh; }
+  #scroll-section-0 .sticky-items .main-message {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+#scroll-section-1 {
+  width: auto;
+  height: 100%; }
