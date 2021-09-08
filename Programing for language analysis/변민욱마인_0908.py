@@ -99,3 +99,15 @@ print(a[1:]) #1부터 쭉 추출
 
 a='frog'
 len(a)
+
+a='python program'
+print(a.replace('p','P'))
+
+b='puppy'
+print(b.replace('p','P'))
+print(a.upper())
+print(a.lower())
+
+b='Python Program'
+print(b.swapcase())
+print(a.capitalize())
