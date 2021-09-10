@@ -8,6 +8,17 @@ body {
   letter-spacing: -.05em;
   background: #fff;
   overflow-x: hidden !important; }
+  body .sticky-elem {
+    display: none;
+    position: fixed;
+    left: 0;
+    width: 100%; }
+
+#show-scene-0 #scroll-section-0 .sticky-elem,
+#show-scene-1 #scroll-section-1 .sticky-elem,
+#show-scene-2 #scroll-section-2 .sticky-elem,
+#show-scene-3 #scroll-section-3 .sticky-elem {
+  display: inline-block; }
 
 .global-nav {
   position: fixed;
@@ -15,10 +26,11 @@ body {
   left: 0;
   width: 100vw;
   height: 52px;
+  z-index: 999;
   border-bottom: 1px solid #ddd;
   padding: 1rem 1.2rem;
   padding-left: 1rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.7);
   -webkit-backdrop-filter: saturate(180%) blur(15px);
   -moz-backdrop-filter: saturate(180%) blur(15px);
   -o-backdrop-filter: saturate(180%) blur(15px);
@@ -35,9 +47,34 @@ body {
     max-width: 80px;
     height: 50px; }
 
-.scroll-section-0 h1 {
-  font-size: 4rem;
-  text-align: center; }
+.header {
+  width: 100%;
+  height: auto;
+  padding-top: 70px; }
+  .header .background-image {
+    display: inline;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    object-fit: cover; }
+  .header-title {
+    font-family: 'Nanum Pen Script', cursive;
+    position: absolute;
+    top: 50vh;
+    left: 10vh;
+    z-index: 10;
+    font-size: 2rem;
+    color: white; }
+
+section {
+  border: 1px solid red; }
+
+#scroll-section-0 h1 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background-color: #888; }
 
 .main-message {
   display: flex;
@@ -117,8 +154,25 @@ body {
       margin: 0 auto;
       transform: translateX(-10%);
       font-size: 24px; }
+  .header {
+    width: 100%;
+    height: auto;
+    padding-top: 80px; }
+    .header .background-image {
+      position: static;
+      width: 320px;
+      height: auto;
+      object-fit: cover; }
+    .header-title {
+      position: absolute;
+      top: 50vh;
+      left: 10vh;
+      z-index: 10;
+      line-height: 1.4;
+      font-size: 5rem;
+      color: beige; }
   #scroll-section-0 h1 {
-    font-size: 9vw; }
+    font-size: 4vw; }
   .main-message {
     font-size: 4vw; }
   .description {

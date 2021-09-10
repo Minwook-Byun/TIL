@@ -2,10 +2,12 @@
 
     let yOffset = 0; // window.pageOffset대신 사용할 변수. 
     let pervScrollHeight = 0; //yOffset보다 이전에 위치한 스크롤 섹션들의 스크롤 높이의 합 
-    let currentScene = 0; //현재 활성화된 (눈 앞에서 보고 있는 ) 씬 
+    let currentScene = 0; //현재 활성화된 (눈 앞에서 보고 있는 ) scroll-section 
 
 
-    const sceneInfo = [{
+    const sceneInfo = [
+
+        {
             // 0번 화면
             type: 'sticky',
             heightNum: 5,
@@ -49,7 +51,6 @@
             sceneInfo[i].scrollHeight = window.innerHeight * sceneInfo[i].heightNum;
             sceneInfo[i].objs.container.style.height = `${sceneInfo[i].scrollHeight}px`
         }
-        console.log(sceneInfo);
     }
 
     setLayout();
@@ -59,13 +60,19 @@
 
     function scrollLoop() {
         pervScrollHeight = 0;
-        for (let i = 0; i < sceneInfo.length; i++) {
+        for (let i = 0; i < currentScene; i++) {
             pervScrollHeight += sceneInfo[i].scrollHeight; //계속 더해주면서 
         }
 
-        if(yOffset > pervScrollHeight){
-            
+        if (yOffset > pervScrollHeight + sceneInfo[currentScene].scrollHeight) {
+            currentScene++;
         }
+
+        if (yOffset < pervScrollHeight) {
+            currentScene--;
+        }
+
+        document.body.setAttribute('id', `show-scene-${currentScene}`);
     }
 
     window.addEventListener('resize', setLayout);

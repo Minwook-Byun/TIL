@@ -1,88 +1,294 @@
-@mixin main-message {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 3rem;
-    margin: 5px;
-    font-size: 2.5rem;
-    line-height: 1.2rem;
-}
+@charset 'utf-8';
+$max-logo-sm-width:50px;
 
-@mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@mixin main-message {
+    font-size: 8vw;
+    line-height: 1.6;
 }
 
 html {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
+    box-sizing: border-box;
+}
+
+body {
+    color: rgb(29, 29, 31);
+    letter-spacing: -.05em;
+    background: #fff;
+    overflow-x: hidden !important;
+
+    .sticky-elem {
+        display: none;
+        position: fixed;
+        left: 0;
+        width: 100%;
+    }
+}
+
+#show-scene-0 #scroll-section-0 .sticky-elem,
+#show-scene-1 #scroll-section-1 .sticky-elem,
+#show-scene-2 #scroll-section-2 .sticky-elem,
+#show-scene-3 #scroll-section-3 .sticky-elem {
+    display: inline-block;
+}
+
+p {
+    // @include main-message();
 }
 
 
 
-@mixin sticky-element {
-    position: fixed;
-    padding-top: 50vh;
-}
 
-// MOBILE-FIRST 
-// nav
+// nav design
+
 .global-nav {
-    @include flex-center();
     position: fixed;
     top: 0;
     left: 0;
-    display: block;
-    width: 100%;
-    height: 70px;
-    padding: 1rem;
-    font-size: 2rem;
-    z-index: 9999;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    background-color: transparent;
+    width: 100vw;
+    height: 52px;
+    z-index: 999;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 1.2rem;
+    padding-left: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: saturate(180%) blur(15px);
+    -moz-backdrop-filter: saturate(180%) blur(15px);
+    -o-backdrop-filter: saturate(180%) blur(15px);
+    backdrop-filter: saturate(180%) blur(15px);
 
-    .global-nav-items {
-        @include flex-center();
-        justify-content: start;
+
+    &-items {
         height: 100%;
-        width: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .title {
+        display: none;
+        font-size: 1.3rem;
+        margin: 0 auto;
     }
 
     .logo {
-        float: left;
-        font-size: 0.5rem;
-    }
-
-    .section-title {
-        margin: 0 auto;
+        max-width: 80px;
+        height: 50px;
     }
 }
 
+// header
+.header {
+    width: 100%;
+    height: auto;
+    padding-top: 70px;
 
-// section 0
+    .background-image {
+        display: inline;
+        position: absolute;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+
+    }
+
+    &-title {
+        font-family: 'Nanum Pen Script', cursive;
+        position: absolute;
+        top: 50vh;
+        left: 10vh;
+        z-index: 10;
+        font-size: 2rem;
+        color: white;
+    }
+
+}
+
+// TBD
+section {
+    border: 1px solid red;
+}
+
 #scroll-section-0 {
-    padding-top: 100px;
-    width: auto;
-    height: 100%;
+    h1 {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        background-color: #888;
+    }
+}
 
-    .sticky-items {
+.main-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3em;
+    font-size: 2.5rem;
+    padding: 0 1rem;
+    background-color: yellow;
 
-        .sticky-elememnt {
-            position: fixed;
-            font-size: 1.5rem;
-            padding-top: 50vh;
-        }
-
-        .main-message {
-            @include flex-center();
-        }
+    p {
+        font-weight: 700;
+        text-align: center;
+        line-height: 1.2;
     }
 }
 
 
-#scroll-section-1 {
-    width: auto;
-    height: 100%;
-    background:url(./)
+.description {
+    max-width: 1000px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: #888;
+    padding: 0 1rem;
+}
+
+.desc-message {
+    width: 50%;
+    font-weight: bold;
+
+    .pin {
+        width: 1px;
+        height: 100px;
+        background: #000;
+    }
+}
+
+.mid-message {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    font-size: 2rem;
+    color: #888;
+
+    strong {
+        color: black;
+    }
+}
+
+.canvas-caption {
+    padding: 0 1rem;
+    color: #888;
+    text-align: center;
+}
+
+
+.footer {
+    display: block;
+    height: 15rem;
+    width: 100%;
+
+    background: #888;
+
+    .makers-list {
+        padding: 1rem 3rem;
+        margin-left: auto;
+        margin-bottom: 2rem;
+        color: black;
+
+        &-title {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        &-items {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+    }
+
+    .thanks-to {
+        display: flex;
+        justify-content: center;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+}
+
+
+
+// DESKTOP 대응하기 
+
+@media (min-width:1024px) {
+
+    $max-logo-lg-width: 80px;
+
+    .global-nav {
+        padding: 1rem 4.5rem;
+        height: 70px;
+
+        .title {
+            display: inline-block;
+            margin: 0 auto;
+            transform: translateX(-10%);
+            font-size: 24px;
+        }
+    }
+
+
+    .header {
+        width: 100%;
+        height: auto;
+        padding-top: 80px;
+
+        .background-image {
+            position: static;
+            width: 320px;
+            height: auto;
+            object-fit: cover;
+
+        }
+
+        &-title {
+            position: absolute;
+            top: 50vh;
+            left: 10vh;
+            z-index: 10;
+            line-height: 1.4;
+            font-size: 5rem;
+            color: beige;
+        }
+
+    }
+
+    #scroll-section-0 h1 {
+        font-size: 4vw;
+    }
+
+    .main-message {
+        font-size: 4vw;
+    }
+
+    .description {
+        font-size: 2rem;
+    }
+
+    #scroll-section-2 {
+        .main-message {
+            font-size: 6vw;
+
+            small {
+                font-size: 1.5vw;
+            }
+        }
+
+        .desc-message {
+            width: 20%;
+        }
+    }
+
+    .mid-message {
+        font-size: 4vw;
+    }
+
+    .canvas-caption {
+        font-size: 2rem;
+    }
+
 }
