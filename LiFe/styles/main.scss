@@ -16,7 +16,7 @@ body {
     color: rgb(29, 29, 31);
     letter-spacing: -.05em;
     background: #fff;
-    overflow-x: hidden !important;
+    overflow-x: hidden;
 
     .sticky-elem {
         display: none;
@@ -38,6 +38,10 @@ p {
 }
 
 
+.container {
+    overflow-x: hidden;
+}
+
 
 
 // nav design
@@ -58,7 +62,6 @@ p {
     -o-backdrop-filter: saturate(180%) blur(15px);
     backdrop-filter: saturate(180%) blur(15px);
 
-
     &-items {
         height: 100%;
         display: flex;
@@ -77,36 +80,43 @@ p {
     }
 }
 
+
+
 // header
-.header {
-    width: 100%;
-    height: auto;
-    padding-top: 70px;
+// .header {
+//     width: 100%;
+//     height: auto;
+//     padding-top: 70px;
 
-    .background-image {
-        display: inline;
-        position: absolute;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
+//     .background-image {
+//         display: inline;
+//         position: absolute;
+//         width: 100%;
+//         height: auto;
+//         object-fit: cover;
 
-    }
+//     }
 
-    &-title {
-        font-family: 'Nanum Pen Script', cursive;
-        position: absolute;
-        top: 50vh;
-        left: 10vh;
-        z-index: 10;
-        font-size: 2rem;
-        color: white;
-    }
+//     &-title {
+//         font-family: 'Nanum Pen Script', cursive;
+//         position: absolute;
+//         top: 50vh;
+//         left: 10vh;
+//         z-index: 10;
+//         font-size: 2rem;
+//         color: white;
+//     }
 
-}
+// }
 
 // TBD
 section {
     border: 1px solid red;
+}
+
+.scroll-section {
+    position: relative;
+    padding-top: 50vh;
 }
 
 #scroll-section-0 {
@@ -120,13 +130,17 @@ section {
 }
 
 .main-message {
+    position: fixed;
+    top: 35vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 5px 0;
     height: 3em;
     font-size: 2.5rem;
     padding: 0 1rem;
     background-color: yellow;
+    opacity: 0;
 
     p {
         font-weight: 700;
