@@ -7,13 +7,14 @@ $max-logo-sm-width:50px;
 }
 
 html {
+    position: relative;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     box-sizing: border-box;
 }
 
 body {
-    color: rgb(29, 29, 31);
+    color: tomato;
     letter-spacing: -.05em;
     background: #fff;
     overflow-x: hidden;
@@ -32,6 +33,24 @@ body {
 #show-scene-3 #scroll-section-3 .sticky-elem {
     display: inline-block;
 }
+
+#scroll-section-0 {
+    padding-top: 0;
+    h1{
+        position: absolute;
+        z-index: 100;
+    }
+}
+
+
+#video-canvas-0 {
+    position: static;
+    top: 0;
+    height: 100%;
+    // z-index: 999;
+    // background: #888;
+}
+
 
 p {
     // @include main-message();
@@ -81,6 +100,9 @@ p {
 }
 
 
+#scroll-section-1 {
+    padding-top: 100vh;
+}
 
 // header
 // .header {
@@ -139,7 +161,6 @@ section {
     height: 3em;
     font-size: 2.5rem;
     padding: 0 1rem;
-    background-color: yellow;
     opacity: 0;
 
     p {
@@ -154,7 +175,6 @@ section {
     max-width: 1000px;
     margin: 0 auto;
     font-size: 1.2rem;
-    color: #888;
     padding: 0 1rem;
 }
 
