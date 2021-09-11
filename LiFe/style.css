@@ -7,10 +7,11 @@ body {
   color: #1d1d1f;
   letter-spacing: -.05em;
   background: #fff;
-  overflow-x: hidden !important; }
+  overflow-x: hidden; }
   body .sticky-elem {
     display: none;
     position: fixed;
+    top: 50vh;
     left: 0;
     width: 100%; }
 
@@ -19,6 +20,9 @@ body {
 #show-scene-2 #scroll-section-2 .sticky-elem,
 #show-scene-3 #scroll-section-3 .sticky-elem {
   display: inline-block; }
+
+.container {
+  overflow-x: hidden; }
 
 .global-nav {
   position: fixed;
@@ -47,27 +51,12 @@ body {
     max-width: 80px;
     height: 50px; }
 
-.header {
-  width: 100%;
-  height: auto;
-  padding-top: 70px; }
-  .header .background-image {
-    display: inline;
-    position: absolute;
-    width: 100%;
-    height: auto;
-    object-fit: cover; }
-  .header-title {
-    font-family: 'Nanum Pen Script', cursive;
-    position: absolute;
-    top: 50vh;
-    left: 10vh;
-    z-index: 10;
-    font-size: 2rem;
-    color: white; }
-
 section {
   border: 1px solid red; }
+
+.scroll-section {
+  position: relative;
+  padding-top: 50vh; }
 
 #scroll-section-0 h1 {
   position: absolute;
@@ -77,13 +66,16 @@ section {
   background-color: #888; }
 
 .main-message {
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 5px 0;
   height: 3em;
   font-size: 2.5rem;
   padding: 0 1rem;
-  background-color: yellow; }
+  background-color: yellow;
+  opacity: 0; }
   .main-message p {
     font-weight: 700;
     text-align: center;

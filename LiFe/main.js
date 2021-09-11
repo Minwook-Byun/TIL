@@ -4,7 +4,7 @@
     let pervScrollHeight = 0; //yOffset보다 이전에 위치한 스크롤 섹션들의 스크롤 높이의 합 
     let currentScene = 0; //현재 활성화된 (눈 앞에서 보고 있는 ) scroll-section 
     let IntoNewScene = false; //get into the new scene => become True 
-
+    const SectionTitle = document.querySelector('#section-title');
 
     const sceneInfo = [
 
@@ -22,21 +22,51 @@
                 messageE: document.querySelector('#scroll-section-0 .main-message.e'),
             },
             values: {
+                // in 동작 
                 OpacityOfMessageA_in: [0, 1, {
                     start: 0.1,
                     end: 0.2
                 }],
+
                 OpacityOfMessageB_in: [0, 1, {
                     start: 0.3,
                     end: 0.4
                 }],
+
+                OpacityOfMessageC_in: [0, 1, {
+                    start: 0.5,
+                    end: 0.6
+                }],
+
+                OpacityOfMessageD_in: [0, 1, {
+                    start: 0.7,
+                    end: 0.8
+                }],
+
+                OpacityOfMessageE_in: [0, 1, {
+                    start: 0.91,
+                    end: 0.96
+                }],
+
                 OpacityOfMessageA_out: [0, 1, {
-                    start: 0.2,
+                    start: 0.25,
                     end: 0.3
                 }],
                 OpacityOfMessageB_out: [0, 1, {
                     start: 0.45,
                     end: 0.5
+                }],
+                OpacityOfMessageC_out: [0, 1, {
+                    start: 0.65,
+                    end: 0.7
+                }],
+                OpacityOfMessageD_out: [0, 1, {
+                    start: 0.85,
+                    end: 0.9
+                }],
+                OpacityOfMessageE_out: [0, 1, {
+                    start: 0.96,
+                    end: 0.99
                 }],
             }
         },
@@ -73,8 +103,13 @@
     function setLayout() {
         // setting height for each section 
         for (let i = 0; i < sceneInfo.length; i++) {
-            sceneInfo[i].scrollHeight = window.innerHeight * sceneInfo[i].heightNum;
-            sceneInfo[i].objs.container.style.height = `${sceneInfo[i].scrollHeight}px`
+            if (sceneInfo[i].type === 'sticky') {
+                sceneInfo[i].scrollHeight = window.innerHeight * sceneInfo[i].heightNum;
+                sceneInfo[i].objs.container.style.height = `${sceneInfo[i].scrollHeight}px`
+            } else if (sceneInfo[i].type === 'normal') {
+                sceneInfo.scrollHeight = sceneInfo[i].objs.container.offsetHeight;
+            }
+            sceneInfo[i].objs.container.style.height = `${sceneInfo[i].scrollHeight}px`;
         }
 
         // 새로고침 대응하기 
@@ -129,15 +164,14 @@
 
         if (values.length === 3) {
             // starting animate between start and end
-            console.log(values[2])
             const partScrollStart = values[2].start * scrollHeight;
             const partScrollEnd = values[2].end * scrollHeight;
             const partScrollHeight = partScrollEnd - partScrollStart;
 
-            if (currentYOffset <= partScrollStart && currentYOffset <= partScrollEnd) {
+            if (currentYOffset >= partScrollStart && currentYOffset <= partScrollEnd) {
                 // console.log('1번시작')
-                rv = (currentYOffset-partScrollStart)/partScrollHeight * (values[1] - values[0]);
-                
+                rv = (currentYOffset - partScrollStart) / partScrollHeight * ((values[1] - values[0]) + values[0]);
+
             } else if (currentYOffset < partScrollStart) {
                 // console.log('2번시작')
                 rv = values[0];
@@ -147,7 +181,7 @@
             }
 
         } else {
-            rv = scrollRatio * ((values[1] - values[0] + values[0]));
+            rv = scrollRatio * (values[1] - values[0]) + values[0];
         }
         // console.log( scrollRatio * ((values[1] - values[0] + values[0])));
         return rv;
@@ -161,32 +195,71 @@
         const currentYOffset = yOffset - pervScrollHeight;
         const scrollHeight = sceneInfo[currentScene].scrollHeight;
         const scrollRatio = (yOffset - pervScrollHeight) / scrollHeight;
-
+        const Translate = scrollRatio * 20;
 
         switch (currentScene) {
             case 0:
                 // console.log('0 play')
-                const OpacityOfMessageA_in = calculateValues(stageValues.OpacityOfMessageA_in, currentYOffset);
-                const OpacityOfMessageA_out = calculateValues(stageValues.OpacityOfMessageA_out, currentYOffset);
-               console.log(OpacityOfMessageA_out)
-
+                SectionTitle.style.opacity = 1+scrollRatio
+                SectionTitle.innerHTML = `section-1 시작`
                 if (scrollRatio <= 0.22) {
                     //in
-                    stageObjs.messageA.style.opacity = OpacityOfMessageA_in;
+                    stageObjs.messageA.style.opacity = calculateValues(stageValues.OpacityOfMessageA_in, currentYOffset);
                 } else {
                     //out
-                    stageObjs.messageA.style.opacity = OpacityOfMessageA_out;
+                    stageObjs.messageA.style.opacity = 1 - calculateValues(stageValues.OpacityOfMessageA_out, currentYOffset);
                 }
+
+                if (scrollRatio <= 0.42) {
+                    //in
+                    stageObjs.messageB.style.opacity = calculateValues(stageValues.OpacityOfMessageB_in, currentYOffset);
+                } else {
+                    //out
+                    stageObjs.messageB.style.opacity = 1 - calculateValues(stageValues.OpacityOfMessageB_out, currentYOffset);
+                }
+
+
+                if (scrollRatio <= 0.62) {
+                    //in
+                    stageObjs.messageC.style.opacity = calculateValues(stageValues.OpacityOfMessageC_in, currentYOffset);
+                } else {
+                    //out
+                    stageObjs.messageC.style.opacity = 1 - calculateValues(stageValues.OpacityOfMessageC_out, currentYOffset);
+                }
+
+
+                if (scrollRatio <= 0.82) {
+                    //in
+                    stageObjs.messageD.style.opacity = calculateValues(stageValues.OpacityOfMessageD_in, currentYOffset);
+                } else {
+                    //out
+                    stageObjs.messageD.style.opacity = 1 - calculateValues(stageValues.OpacityOfMessageD_out, currentYOffset);
+                }
+
+                if (scrollRatio <= 0.92) {
+                    //in
+                    stageObjs.messageE.style.opacity = calculateValues(stageValues.OpacityOfMessageE_in, currentYOffset);
+                } else {
+                    //out
+                    stageObjs.messageE.style.opacity = 1 - calculateValues(stageValues.OpacityOfMessageE_out, currentYOffset);
+                }
+
 
                 break;
             case 1:
                 // console.log('1 play')
+                SectionTitle.style.opacity = 0.2+scrollRatio
+                SectionTitle.innerText = `section-2 시작`
                 break;
             case 2:
                 // console.log('2 play')
+                SectionTitle.style.opacity = 0.2+scrollRatio
+                SectionTitle.innerText = `section-3 시작`
                 break;
             case 3:
                 // console.log('3 play')
+                SectionTitle.style.opacity = 0.2+scrollRatio
+                SectionTitle.innerText = `section-4 시작`
                 break;
         }
     }
