@@ -1,40 +1,54 @@
 import http from "http";
 import WebSocket from "ws";
 import express from "express";
+import {
+    PassThrough
+} from "stream";
 
 const app = express();
+
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views");
 app.use("/public", express.static(__dirname + "/public"));
-
 app.get("/", (_, res) => res.render("home"));
 app.get("/*", (_, res) => res.redirect("/"));
 
 const handleListen = () => console.log(`Listening on http://localhost:3000`);
+
 const server = http.createServer(app);
 const wss = new WebSocket.Server({
     server
 });
 
-const userSockets = [];
+function onSocketClose() {
+    console.log("Disconnected from the Browser ❌");
+}
 
-// 여기서 백엔드에서 listen을 해주는 것.
-// 파폭, 브레이브, 크롬에도 작동을 하지만 
-// 각각의 브라우저 내에서만 소통을 하고 
-// 서로 다른 브라우저끼리는 소통이 되지 않는다. 
+const sockets = [];
+
 wss.on("connection", (socket) => {
-    // firefox, brave가 연결될 때 여기에 소켓을 넣어준다. 
-    userSockets.push(socket); // [brave, firefox]
+    sockets.push(socket);
+    socket["nickname"]="익명의 사용자";
     console.log("Connected to Browser ✅");
-    socket.on("close", () => console.log("Disconnected from the Browser ❌"));
+    socket.on("close", onSocketClose);
     socket.on("message", (message) => {
-        userSockets.forEach(aSocket => aSocket.send(message));
+        const parsedMessage = JSON.parse(message);
+        switch (parsedMessage.type) {
+            case "new_message":
+                sockets.forEach((aSocket) => aSocket.send(`${socket.nickname}: ${parsedMessage.payload}`.toString('utf-8')));
+            case "nickname":
+                socket["nickname"] = parsedMessage.payload;
+                break;
+        }
+
+        // if (parsedMessage.type === "new_message") {
+        //     sockets.forEach((aSocket) => aSocket.send(parsedMessage.payload.toString('utf-8'))); //payload는 지금 입력해주는 값 
+        // } //어떤 메세지를 받는지 구분을 시켜주고 있다. 
+        // else if(parsedMessage.type === "nickname") {
+        //     console.log(parsedMessage.payload);
+        // }
+
     });
 });
 
-// 근데 누가 접속했는지 모른다. 위 코드는 두번 작동
-// BRAVER와 연결될 때, 파이어폭스에서 연결될 때
-// 몇 명이 연결되어 있는지도 모른다. 
-
 server.listen(3000, handleListen);
-
