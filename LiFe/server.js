@@ -27,7 +27,7 @@ MongoClient.connect('mongodb+srv://admin:Lifesecurity!@cluster0.xen2v.mongodb.ne
     db = result.db('LifeLabServer');
 
     app.post('/add', function (req, res) {
-        res.send('connecting to sever!')
+        res.redirect('http://localhost:8080/');
         db.collection('ReplyCounter').findOne({
             name: 'totalReply'
         }, function (error, result) {

@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -113,16 +116,15 @@
                 obcaecati.
             </p>
         </section>
-
+            
 
         <section class="reply-section">
-            <h4>댓글 리스트</h4>
-            <ul class="list-group">
+            <h4 class="reply-section-title">댓글 리스트</h4>
+            <ul class="reply-list-group">
                 <% for (let i = 0; i < replycontents.length; i ++) { %>
                 <li class="list-group-item">
-                    <p>글번호: <%= replycontents[i]._id %> </p>
-                    <h4><%= replycontents[i].작성자%></h4>
                     <p><%= replycontents[i].내용%></p>
+                    <h4><%= replycontents[i].작성자%></h4>
                 </li>
                 <% } %>
             </ul>
