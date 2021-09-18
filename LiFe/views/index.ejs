@@ -116,7 +116,16 @@
 
 
         <section class="reply-section">
-            <form action="/write"></form>
+            <h4>댓글 리스트</h4>
+            <ul class="list-group">
+                <% for (let i = 0; i < replycontents.length; i ++) { %>
+                <li class="list-group-item">
+                    <p>글번호: <%= replycontents[i]._id %> </p>
+                    <h4><%= replycontents[i].작성자%></h4>
+                    <p><%= replycontents[i].내용%></p>
+                </li>
+                <% } %>
+            </ul>
         </section>
 
 
@@ -131,7 +140,6 @@
         </footer>
     </div>
     <script src="./main.js"></script>
-
 </body>
 
 
