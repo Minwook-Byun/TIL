@@ -31,8 +31,8 @@ MongoClient.connect('mongodb+srv://admin:Lifesecurity!@cluster0.xen2v.mongodb.ne
                 function (에러, 결과) {
                     console.log('몽고디비로 전송완료!');
                 }
-                //카운터에서 네임이 죠런 것을 찾아서
-                // 총게시물 갯수 +1을 해줘라 
+            //카운터에서 네임이 죠런 것을 찾아서
+            // 총게시물 갯수 +1을 해줘라 
             db.collection('counter').updateOne({
                     name: 'PostNumber'
                 }, {
@@ -83,3 +83,16 @@ app.get('/', function (요청, 응답) {
 app.get('/write', (요청, 응답) => {
     응답.sendFile(__dirname + '/write.html')
 });
+
+app.delete('/delete', function (req, res) {
+    console.log(req.body);
+    req.body._id = parseInt(req.body._id);
+    //요청.bdoy에 담겨온 게시물 번호를 가진 글을 db에서 찾아서 삭제해주세요
+    db.collection('post').deleteOne(
+        // 어떤 요소를 찾아서 삭제할 지 
+        // req.body, 그런데 삭제가 되지 않는다. 디비 내에는 숫자로 저장되어 있기 때문이다
+        req.body,
+        function (에러, 결과) {
+            console.log('삭제완료');
+        })
+})
