@@ -1,0 +1,194 @@
+html {
+  position: relative;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  box-sizing: border-box; }
+
+body {
+  color: tomato;
+  letter-spacing: -.05em;
+  background: #fff;
+  overflow-x: hidden; }
+  body .sticky-elem {
+    display: none;
+    position: fixed;
+    left: 0;
+    width: 100%; }
+
+#show-scene-0 #scroll-section-0 .sticky-elem,
+#show-scene-1 #scroll-section-1 .sticky-elem,
+#show-scene-2 #scroll-section-2 .sticky-elem,
+#show-scene-3 #scroll-section-3 .sticky-elem {
+  display: inline-block; }
+
+#scroll-section-0 {
+  padding-top: 0; }
+  #scroll-section-0 h1 {
+    position: absolute;
+    z-index: 100; }
+
+#video-canvas-0 {
+  position: static;
+  top: 0;
+  height: 100%; }
+
+.container {
+  overflow-x: hidden; }
+
+.global-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 52px;
+  z-index: 999;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 1.2rem;
+  padding-left: 1rem;
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: saturate(180%) blur(15px);
+  -moz-backdrop-filter: saturate(180%) blur(15px);
+  -o-backdrop-filter: saturate(180%) blur(15px);
+  backdrop-filter: saturate(180%) blur(15px); }
+  .global-nav-items {
+    height: 100%;
+    display: flex;
+    align-items: center; }
+  .global-nav .title {
+    display: none;
+    font-size: 1.3rem;
+    margin: 0 auto; }
+  .global-nav .logo {
+    max-width: 80px;
+    height: 50px; }
+
+#scroll-section-1 {
+  padding-top: 100vh; }
+
+section {
+  border: 1px solid red; }
+
+.scroll-section {
+  position: relative;
+  padding-top: 50vh; }
+
+#scroll-section-0 h1 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background-color: #888; }
+
+.main-message {
+  position: fixed;
+  top: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0;
+  height: 3em;
+  font-size: 2.5rem;
+  padding: 0 1rem;
+  opacity: 0; }
+  .main-message p {
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2; }
+
+.description {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  padding: 0 1rem; }
+
+.desc-message {
+  width: 50%;
+  font-weight: bold; }
+  .desc-message .pin {
+    width: 1px;
+    height: 100px;
+    background: #000; }
+
+.mid-message {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  font-size: 2rem;
+  color: #888; }
+  .mid-message strong {
+    color: black; }
+
+.canvas-caption {
+  padding: 0 1rem;
+  color: #888;
+  text-align: center; }
+
+.footer {
+  display: block;
+  height: 15rem;
+  width: 100%;
+  background: #888; }
+  .footer .makers-list {
+    padding: 1rem 3rem;
+    margin-left: auto;
+    margin-bottom: 2rem;
+    color: black; }
+    .footer .makers-list-title {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-weight: 700; }
+    .footer .makers-list-items {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 0.5rem;
+      font-size: 1rem; }
+  .footer .thanks-to {
+    display: flex;
+    justify-content: center;
+    font-size: 0.8rem;
+    text-align: center; }
+
+@media (min-width: 1024px) {
+  .global-nav {
+    padding: 1rem 4.5rem;
+    height: 70px; }
+    .global-nav .title {
+      display: inline-block;
+      margin: 0 auto;
+      transform: translateX(-10%);
+      font-size: 24px; }
+  .header {
+    width: 100%;
+    height: auto;
+    padding-top: 80px; }
+    .header .background-image {
+      position: static;
+      width: 320px;
+      height: auto;
+      object-fit: cover; }
+    .header-title {
+      position: absolute;
+      top: 50vh;
+      left: 10vh;
+      z-index: 10;
+      line-height: 1.4;
+      font-size: 5rem;
+      color: beige; }
+  #scroll-section-0 h1 {
+    font-size: 4vw; }
+  .main-message {
+    font-size: 4vw; }
+  .description {
+    font-size: 2rem; }
+  #scroll-section-2 .main-message {
+    font-size: 6vw; }
+    #scroll-section-2 .main-message small {
+      font-size: 1.5vw; }
+  #scroll-section-2 .desc-message {
+    width: 20%; }
+  .mid-message {
+    font-size: 4vw; }
+  .canvas-caption {
+    font-size: 2rem; } }

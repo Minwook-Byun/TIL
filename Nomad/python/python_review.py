@@ -125,3 +125,4 @@ def plus(a,b):
 import math
 
 print(math.ceil(1.2)) #모듈을 import해줘야 사용가능하다. 
+print(2225000 *12)

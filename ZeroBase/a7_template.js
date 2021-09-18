@@ -3,7 +3,11 @@
   제한사항: n은 1이상의 양수입니다.
 */
 function isEvenNumber(n) {
-  // do something
+  if(n%2===0){
+    return true;
+  }else{
+    return false; 
+  }
 }
 
 console.log(isEvenNumber(9)); // false
