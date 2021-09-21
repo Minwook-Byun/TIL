@@ -172,6 +172,21 @@ section {
 }
 
 
+// scroll-section-2
+#scroll-section-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+
+    .image-blend-canvas {
+      
+        background: red;
+        transform: translateY(-100%);
+        // border-radius: 50%;
+    }
+}
+
 .description {
     max-width: 1000px;
     margin: 0 auto;
@@ -232,11 +247,12 @@ section {
         background: dodgerblue;
         border-radius: 8px;
         margin-top: 100px;
-    a{
-        font-size: 1em;
-        color: white;
-        text-decoration: none;
-    }
+
+        a {
+            font-size: 1em;
+            color: white;
+            text-decoration: none;
+        }
     }
 
     .reply-list-group {

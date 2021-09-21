@@ -40,6 +40,8 @@ class FeStudent {
 }
 
 
+
+
 const feStudent = new FeStudent('Jin', 'Frontend');
 console.log(feStudent); // FeStudent { name: 'Jin', major: 'Frontend' }
 feStudent.sayHi(); // Hi! My name is Jin.
@@ -61,10 +63,10 @@ printTriangle(10);
 
 function printInvertedTriangle(n) {
     for (i = 0; i < n; i++) {
-        let star =(' ').repeat(i)+(' *').repeat(n - i);
+        let star = (' ').repeat(i) + (' *').repeat(n - i);
         console.log(star);
     }
 }
 
-
+printInvertedTriangle(2);
 printInvertedTriangle(10);

@@ -96,8 +96,30 @@
             heightNum: 5,
             scrollHeight: 0,
             objs: {
-                container: document.querySelector('#scroll-section-2')
+                container: document.querySelector('#scroll-section-2'),
+                canvasCaption: document.querySelector('.cavas-caption'),
+                canvas: document.querySelector('.image-blend-canvas'),
+                ctx: document.querySelector('.image-blend-canvas').getContext('2d'),
+                imagePath: [
+                    '0.jpg',
+                    '1.jpg'
+
+                ],
+                images: []
+            },
+            values: {
+                rect1X: [0, 0, {
+                    start: 0,
+                    end: 0
+                }],
+                rect2X: [0, 0, {
+                    start: 0,
+                    end: 0
+                }],
+                rectStartY: 0,
             }
+
+
         },
         {
             // 3번 화면 
@@ -105,7 +127,8 @@
             heightNum: 5,
             scrollHeight: 0,
             objs: {
-                container: document.querySelector('#scroll-section-3')
+                container: document.querySelector('#scroll-section-3'),
+
             }
         }
     ];
@@ -174,7 +197,8 @@
         let rv;
         // 현재 씬{scrollsection}에서의 비율
         const scrollHeight = sceneInfo[currentScene].scrollHeight;
-        const scrollRatio = currentYOffset / sceneInfo[currentScene].scrollHeight
+        // const scrollRatio = currentYOffset / sceneInfo[currentScene].scrollHeight
+        const scrollRatio = currentYOffset / scrollHeight;
 
 
         if (values.length === 3) {
@@ -185,7 +209,8 @@
 
             if (currentYOffset >= partScrollStart && currentYOffset <= partScrollEnd) {
                 // console.log('1번시작')
-                rv = (currentYOffset - partScrollStart) / partScrollHeight * ((values[1] - values[0]) + values[0]);
+                // rv = (currentYOffset - partScrollStart) / partScrollHeight * ((values[1] - values[0]) + values[0]);
+                rv = (currentYOffset - partScrollStart) / partScrollHeight * (values[1] - values[0]) + values[0];
 
             } else if (currentYOffset < partScrollStart) {
                 // console.log('2번시작')
@@ -208,6 +233,13 @@
             imgSrc = new Image();
             imgSrc.src = `./video/${i}.JPG`
             sceneInfo[0].objs.videoImages.push(imgSrc);
+        }
+
+        let imgSrc2;
+        for (let i = 0; i < sceneInfo[2].objs.imagePath.length; i++) {
+            imgSrc2 = new Image();
+            imgSrc2.src = sceneInfo[2].objs.imagePath[i];
+            sceneInfo[2].objs.images.push(imgSrc2);
         }
     }
 
@@ -282,11 +314,54 @@
                 // console.log('2 play')
                 SectionTitle.style.opacity = 0.2 + scrollRatio
                 SectionTitle.innerText = `section-3 시작`
+
+                console.log('3start');
+
+
+                // 가로 , 세로 모두 꽉 차게 하기 위해서
+                const widthRatio = window.innerWidth / stageObjs.canvas.width;
+                const heightRatio = window.innerHeight / stageObjs.canvas.height;
+                // console.log(widthRatio,heightRatio);
+
+                let canvasScaleRatio;
+                // 둘 중 큰 걸로 높이를 맞춰주겠다 
+                if (widthRatio <= heightRatio) {
+                    canvasScaleRatio = heightRatio;
+                } else {
+                    canvasScaleRatio = widthRatio;
+                }
+
+                stageObjs.canvas.style.transform = `scale(${canvasScaleRatio})`;
+                stageObjs.ctx.drawImage(stageObjs.images[0], 400, 50)
+
+                // 캔버스 사이즈에 맞춰 가정한 innerwidth와 innerheight
+                const reccalculatedImageWidth = window.innerWidth / canvasScaleRatio;
+                const reccalculatedImageHeight = window.innerHeight / canvasScaleRatio;
+
+                if (!stageValues.rectStartY) {
+                    // 위에는 무조건 0에 부정연산이니 무조건 실행될거얌
+                    stageValues.rectStartY = stageObjs.canvas.offsetTop + (stageObjs.canvas.height - stageObjs.canvas.height * canvasScaleRatio) / 2;
+                    stageValues.rect1X[2].end = stageValues.rectStartY / scrollHeight;
+                    stageValues.rect2X[2].end = stageValues.rectStartY / scrollHeight;
+                }
+
+                const whiteRectWidth = reccalculatedImageWidth * 0.15;
+                stageValues.rect1X[0] = (stageObjs.canvas.width - reccalculatedImageWidth) / 2;
+                // 전체 캔버스 1920에서 조정된 너비를 구함. 그리기 시작할 지점. 
+                stageValues.rect1X[1] = stageValues.rect1X[0] - whiteRectWidth;
+                stageValues.rect2X[0] = stageValues.rect1X[0] + reccalculatedImageWidth - whiteRectWidth;
+                // 얘는 방향이 달라서 음수
+                stageValues.rect2X[1] = stageValues.rect2X[0] + whiteRectWidth;
+                // 자기 폭만큼 더 가면 사라진다. 
+
+                
+
                 break;
             case 3:
                 // console.log('3 play')
                 SectionTitle.style.opacity = 0.2 + scrollRatio
                 SectionTitle.innerText = `section-4 시작`
+
                 break;
         }
     }

@@ -95,6 +95,15 @@ section {
     text-align: center;
     line-height: 1.2; }
 
+#scroll-section-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0; }
+  #scroll-section-2 .image-blend-canvas {
+    background: red;
+    transform: translateY(-100%); }
+
 .description {
   max-width: 1000px;
   margin: 0 auto;
