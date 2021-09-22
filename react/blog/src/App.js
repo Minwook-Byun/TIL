@@ -82,9 +82,32 @@ function App() {
         </a>       
       </div>
     </section>
+
+    
     
     </div>
   );
 }
 
+function Modal(){
+  // 치환을 한 것. 원하는 html 담기
+  // 이름은 대문자로 시작!
+  //  태그 하나로 묶어야 함
+  // 지금 요 문서도 하나의 큰 컴포넌트
+  // 리액트를 쓴느 가장 이유 중 하나. 
+  // 반복적으로 출현하는 HTML 덩어리들 
+  // 자주 바뀌는 HTML UI들. 
+  // 다른 페이지 만들 때도 컴포넌트로 만듦.
+  // 많이 만들면 단점: state 쓸 때 복잡해짐. => props 문법 이용해야한다.
+  return(
+    <div className="modal"> 
+      <h2>제목</h2>
+      <p>날짜</p>
+      <p>상세내용</p>
+    </div>
+  )
+}
+
 export default App;
+
+
