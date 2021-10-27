@@ -10,11 +10,11 @@ print(sum(10))
 # (2)팩토리얼 계산
 def factorial(n):
     result = 1;
-    for i in range(1,n):
+    for i in range(n):
         result *= i+1
     return result
 
-print(factorial(3))
+print('3!=',factorial(3))
 
 # 69p. Quiz 5.3
 # (1)
