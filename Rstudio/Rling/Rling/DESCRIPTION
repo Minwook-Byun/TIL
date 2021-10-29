@@ -1,0 +1,10 @@
+Package: Rling
+Type: Package
+Title: A companion package for How to Do Linguistics with R
+Version: 1.0
+Date: 2014-05-26
+Author: Natalia Levshina
+Maintainer: Natalia Levshina <natalevs@gmail.com>
+Description: This package provides data sets and several functions discussed in the textbook.
+License: GPL (>= 2)
+Packaged: 2014-07-04 14:05:14 UTC; levshina

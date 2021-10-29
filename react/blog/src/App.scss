@@ -97,14 +97,20 @@
     }
   }
 
-  
-  .main-contents-like{
+
+  .main-contents-like {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
-    p{
+    p {
       margin-right: 10px;
     }
   }
+}
+
+.modal {
+  margin-top: 20px;
+  padding: 20px;
+  background: #eae7de;
 }

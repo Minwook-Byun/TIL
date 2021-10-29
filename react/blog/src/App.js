@@ -11,6 +11,7 @@ function App() {
 
   let[글제목, 글제목변경] = useState(['남자코트추천', '강남 우동맛집', '파이썬독학'], ['여자코트추천']);
   let [like, likeCount] = useState(0)
+  let [modal, modal변경] = useState(false); // modal창 스위치
 
   function changeTitle(){
     const newArray = [...글제목];
@@ -19,6 +20,8 @@ function App() {
     
   }
 
+
+ 
   
   return (
     <div className="App">
@@ -77,14 +80,17 @@ function App() {
 
       <div className = "main-contents-list">
         <a href="#" className="main-contents-item">
-            <h3 className="main-contents-item-title"> {글제목[2]} </h3>
+            <h3 className="main-contents-item-title" onClick={()=>{modal변경(true)}}> {글제목[2]} </h3>
             <p className="main-contents-item-date"> 9월 22일 발행</p> 
         </a>       
       </div>
     </section>
-
-    
-    
+    {
+    modal === true 
+    ? <Modal></Modal> 
+    : null //텅빈 html을 의미
+     }
+   
     </div>
   );
 }
@@ -100,7 +106,7 @@ function Modal(){
   // 다른 페이지 만들 때도 컴포넌트로 만듦.
   // 많이 만들면 단점: state 쓸 때 복잡해짐. => props 문법 이용해야한다.
   return(
-    <div className="modal"> 
+    <div className="Modal"> 
       <h2>제목</h2>
       <p>날짜</p>
       <p>상세내용</p>

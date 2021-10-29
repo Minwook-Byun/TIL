@@ -7,20 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <pre></pre>
-    <script>
-        const xhr = new XMLHttpRequest();
-        // HTTP 요청 초기화 todos 리소스에서 모든 todo를 취득(index)
-        xhr.open() // 요청 전송 
-        //load 이벤트는 요청이 성공적으로 완료한 경우 발생한다.
-        xhr.onload = () => {
-            //status 프로퍼티 값이 200이면 정상적으로 응답된 상태. 
-            if(xhr.status === 200){
-                document.querySelector('pre').textContent = xhr.response;
-            } else {
-                console.error('Error', xhr.status, xhr.statusText);
-            }
-        };
+    <input type="text">
+    <script> 
+        document.querySelector('input').oninput = function(){
+            console.log(this.value);
+            return this.value
+        }
     </script>
 </body>
 </html>
