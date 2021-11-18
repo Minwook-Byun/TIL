@@ -91,11 +91,11 @@ for line in lines:
     mean = (float(line[1]) + float(line[2])) / 2
     print('{}월의 평균기온은 {}입니다'.format(line[0], mean))
 
-def my_max(num1, num2):
-    if num1 > num2:
-        return num1
-    else:
-        return num2 
-a = int(input('1번 숫자:'))
-b = int(input('2번 숫자: '))
-print(my_max(a,b))
+# def my_max(num1, num2):
+#     if num1 > num2:
+#         return num1
+#     else:
+#         return num2 
+# a = int(input('1번 숫자:'))
+# b = int(input('2번 숫자: '))
+# print(my_max(a,b))
