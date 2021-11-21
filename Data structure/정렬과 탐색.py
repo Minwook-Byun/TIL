@@ -103,57 +103,70 @@
                 # return
             
 #체이닝을 이용한 해시 맵 
-class HashChainMap:
-    def __init__(self,M): #테이블의 크기 M // def랑 init 띄어야 해염
-        self.table = [None]*M   
-        self.M  = M
+# class HashChainMap:
+#     def __init__(self,M): #테이블의 크기 M // def랑 init 띄어야 해염
+#         self.table = [None]*M   
+#         self.M  = M
         
-    def hashFn(self, key):      #사용할 해시 함수 
-        sum = 0
-        for c in key:           #문자열의 모든 문자에 대해 
-            sum = sum + ord(c)  #아스키 코드 값을 모두 더함 
-        return sum % self.M 
+#     def hashFn(self, key):      #사용할 해시 함수 
+#         sum = 0
+#         for c in key:           #문자열의 모든 문자에 대해 
+#             sum = sum + ord(c)  #아스키 코드 값을 모두 더함 
+#         return sum % self.M 
     
-    def insert(self, key, value): #key, value 입력 
-        idx = self.hashFn(key)  #해시 주소 계산 
-        self.table[idx] = Node(Entry(key, value), self.table[idx])  #전단 삽입
+#     def insert(self, key, value): #key, value 입력 
+#         idx = self.hashFn(key)  #해시 주소 계산 
+#         self.table[idx] = Node(Entry(key, value), self.table[idx])  #전단 삽입
     
-    # def insert(self, key, value):   
-    #     entry = Entry(key, value)   #(1)엔트리 생성 
-    #     node = Node(entry)          #(2)엔트리로 노드를 생성 
-    #     node.link = self.table[idx] #(3)노드의 링크필드 처리 
-    #     self.table[idx] = node      #(4)테이블의 idx항목: node로 시작 
+#     # def insert(self, key, value):   
+#     #     entry = Entry(key, value)   #(1)엔트리 생성 
+#     #     node = Node(entry)          #(2)엔트리로 노드를 생성 
+#     #     node.link = self.table[idx] #(3)노드의 링크필드 처리 
+#     #     self.table[idx] = node      #(4)테이블의 idx항목: node로 시작 
     
-    def search(self, key):
-        idx = self.hashFn(key)
-        node = self.table[idx]
-        while node is not None: 
-            if node.data.key == key:
-                return node.data
-            node = node.link
-        return None 
+#     def search(self, key):
+#         idx = self.hashFn(key)
+#         node = self.table[idx]
+#         while node is not None: 
+#             if node.data.key == key:
+#                 return node.data
+#             node = node.link
+#         return None 
     
-    def delete(self,key):
-        idx = self.hashFn(key)
-        node = self.table[idx]
-        before = None
-        while node is not None: 
-            if node.data.key == key:
-                if before == None:
-                    self.table[idx] = node.link
-                else: 
-                    before.link = node.link 
-                return
-            before = node          #before 갱신 
-            node = node.link       #node 갱신
+#     def delete(self,key):
+#         idx = self.hashFn(key)
+#         node = self.table[idx]
+#         before = None
+#         while node is not None: 
+#             if node.data.key == key:
+#                 if before == None:
+#                     self.table[idx] = node.link
+#                 else: 
+#                     before.link = node.link 
+#                 return
+#             before = node          #before 갱신 
+#             node = node.link       #node 갱신
             
-    def display(self,msg):
-        print(msg)
-        for idx in range(len(self.table)):
-            node = self.table[idx] 
-            if node is not None:
-                print("[%2d]->"%idx, end='')
-                while node is not None:
-                    print(node.data, end=' -> ')
-                    node = node.link
-                print()
+#     def display(self,msg):
+#         print(msg)
+#         for idx in range(len(self.table)):
+#             node = self.table[idx] 
+#             if node is not None:
+#                 print("[%2d]->"%idx, end='')
+#                 while node is not None:
+#                     print(node.data, end=' -> ')
+#                     node = node.link
+#                 print()
+
+
+### 파이썬 딕셔너리를 이용한 구현 
+d = {}
+d['data'] = '자료'
+d['structure'] = '구조'
+d['sequential_search'] ='선형 탐색'
+d['game'] = '게임'
+
+if d.get('game'):
+    print("탐색:game-->", d['game']) #탐색
+
+d.pop('game') #항목 삭제
