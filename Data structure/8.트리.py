@@ -1,55 +1,130 @@
-class TNode:
-    def __init__(self, data, left, right):
-        self.data = data    #노드의 데이터
-        self.left = left    #왼쪽 자식을 위한 링크
-        self.right = right  #오른쪽 자식을 위한 링크 
+MAX_QSIZE = 10
+class CircularQueue :
+    def __init__(self):
+        self.front = 0
+        self.rear = 0
+        self.items = [None] * MAX_QSIZE
         
-    def preorder(self, n):  #전위 순회 함수 
-        if n is not None:
-            print(n.data, end=" ")  #먼저 루트노드 처리 
-            preorder(n.left)        #왼쪽 서브트리 처리 
-            preorder(n.right)      #오른쪽 서브트리 처리       
-    
-    def inorder(self, n):
-        if n is not None:
-            inorder(n.left) #왼쪽 서브트리 처리
-            print(n.data, end ='') #루트 노드 처리(화면 처리)
-            inorder(n.right) #오른쪽 서브트리 처리 
+    def enqueue(self, item):
+        if not self.isFull():
+            self.rear = (self.rear+1)%MAX_QSIZE
+            self.items[self.rear] = item
             
-    def levelorder(root):
-        queue = CircularQueue()
-        queue.enqueue(root) #최초의 큐에는 루트 노드만 들어있다
-        while not queue.isEmpty():  #큐가 공백 상태가 아닌 동안, 
-            n = queue.dequeue()     #큐에서 맨 앞의 노드 n을 꺼낸다 
-            if n is not None:
-                print(n.data, end='')   #먼저 노드의 정보를 출력 
-                queue.enqueue(n.left)   #n의 왼쪽 자식 노드를 큐에 삽입
-                queue.enqueue(n.right)  #n의 오른쪽 자식 노드를 큐에 삽입 
-                
-                
-    def count_node(n):
-        if n is None:
-            return 0
-        else:
-            return 1 + count_node(n.left) + count_node(n.right)
-        
-    def count_leaf(n):
-        if n is None:                               #공백 트리 -- 0을 반환        
-            return 0
-        elif n.left is None and n.right is None:    #단말노드 - 1을 반환
-            return 1 
-        else:                                       #비단말 노드: 좌우 서브트리의 결과 합을 반환 
-            return count_leaf(n.left) + count_leaf(n.right)
-        
-        
-    def calc_height(self,n):
-        if n is None:
-            return 0
-        hLeft = self.calc_height(self, n.left)
-        hRight = self.calc_height(self, n.right)
-        if(hLeft > hRight):
-            return hLeft + 1
-        else:
-            return hRight +1 
-        
-        # https://stackoverflow.com/questions/17843785/python-recursion-within-class
+    def dequeue(self):
+        if not self.isEmpty():
+            self.front = (self.front +1) %MAX_QSIZE
+            return self.items[self.front]
+
+    def isEmpty(self): return self.front == self.rear
+    def isFull(self): return self.front == (self.rear+1)%MAX_QSIZE
+    def clear(self): return self.front == self.rear    
+    
+class TNode:								
+    def __init__ (self, data, left, right):	
+        self.data = data 					
+        self.left = left					
+        self.right = right					
+
+def preorder(n) :				
+    if n is not None :
+        print(n.data, end=' ')	
+        preorder(n.left)		
+        preorder(n.right)		
+
+def inorder(n) :				
+    if n is not None :
+        inorder(n.left)			
+        print(n.data, end=' ')	
+        inorder(n.right)		
+
+def postorder(n) :
+    if n is not None :
+        postorder(n.left)
+        postorder(n.right)
+        print(n.data, end=' ')
+
+
+def levelorder(root) :
+    queue = CircularQueue()			
+    queue.enqueue(root)				
+    while not queue.isEmpty() :		
+        n = queue.dequeue()			
+        if n is not None :
+            print(n.data, end=' ')	
+            queue.enqueue(n.left)	
+            queue.enqueue(n.right)	
+
+def count_node(n) :
+    if n is None : 
+        return 0
+    else : 			
+        return 1 + count_node(n.left) + count_node(n.right)
+
+def count_leaf(n) :
+    if n is None :	
+        return 0
+    elif n.left is None and n.right is None :
+        return 1
+    else : 		
+        return count_leaf(n.left) + count_leaf(n.right)
+
+
+def calc_height(n) :
+    if n is None : 					
+        return 0
+    hLeft = calc_height(n.left)		
+    hRight = calc_height(n.right)	
+    if (hLeft > hRight) : 			
+        return hLeft + 1
+    else: 
+        return hRight + 1
+
+################################
+d = TNode('D', None, None)
+g = TNode('G', None, None)
+h = TNode('H', None, None)
+e = TNode('E', g, h)
+f = TNode('F', None, None)
+b = TNode('B', d, None)
+c = TNode('C', e, f)
+root = TNode('A',b,c)
+
+print('================================\n실습문제 8.1의 왼쪽 트리')
+print('\n   In-Order : ', end='')
+inorder(root)
+print('\n  Pre-Order : ', end='')
+preorder(root)
+print('\n Post-Order : ', end='')
+postorder(root)
+print('\nLevel-Order : ', end='')
+levelorder(root)
+print()
+
+print(" 노드의 개수 = %d개" % count_node(root))
+print(" 단말의 개수 = %d개" % count_leaf(root))
+print(" 트리의 높이 = %d" % calc_height(root))
+
+A = TNode('A', None, None)
+B = TNode('B', None, None)
+level4_div= TNode('/', A, B)
+C = TNode('C', None, None)
+level3_mul = TNode('*',level4_div, C)
+D = TNode('D', None, None)
+level2_mul = TNode('*',level3_mul,D)
+E = TNode('E', None, None)
+root = TNode('+', level2_mul, E)
+
+print('\n================================\n실습문제 8.2의 오른쪽 트리')
+print('\n   In-Order : ', end='')
+inorder(root)
+print('\n  Pre-Order : ', end='')
+preorder(root)
+print('\n Post-Order : ', end='')
+postorder(root)
+print('\nLevel-Order : ', end='')
+levelorder(root)
+print()
+
+print(" 노드의 개수 = %d개" % count_node(root))
+print(" 단말의 개수 = %d개" % count_leaf(root))
+print(" 트리의 높이 = %d" % calc_height(root))
