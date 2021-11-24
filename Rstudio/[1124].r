@@ -70,10 +70,20 @@ print(lm_pitch)
 # (Intercept)           am
 #     19.0073       0.8266
 
+#그냥 넣어주면 그 그래프 나옴 
 abline(lm_pitch)
 
 # 예측도 해보셈 
 # What will be the evening pitch of a person whose morning pitch is 128 Hz?
-예측_am = data.frame(am = 128)
+예측_am = data.frame(am = 128) #data.frame -> predict하려면 어쩔 수 없음 
 새로운_pm = predict(lm_pitch,예측_am)
 새로운_pm #124.8097
+
+
+plot(ratings$FreqSingular, ratings$FreqPlural)
+abline(lm(FreqPlural ~ FreqSingular, data = ratings), col = "red")
+ratings.x = subset (ratings, ratings$FreqSingular < 500) # cut-off outliers
+abline(lm(FreqPlural ~ FreqSingular, data=ratings.x), col="green")
+
+library(MASS)
+abline(lmsreg(FreqPlural ~ FreqSingular, data=ratings), col="blue")
