@@ -46,3 +46,4 @@ t.test(am,pm, paired = T)
 
 delta = c(011,9,9,12,5,0,1,2,2,6,13,5,4,8,1,3,14,26,2,0)
 t.test(delta, mu = 0)
+
