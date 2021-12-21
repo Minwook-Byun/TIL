@@ -84,3 +84,5 @@ head(rating_writing)
 fligner.test(score ~ type, rating_writing) #homogeneity test 
 oneway_test(score ~ type, data = rating_writing, distribution = approximate(nresample = 999999))
 pairwise.t.test(rating_writing$score, data = rating_writing$type, p.adjust ="bonferroni")
+
+
