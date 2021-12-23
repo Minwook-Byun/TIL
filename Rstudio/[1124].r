@@ -87,3 +87,4 @@ abline(lm(FreqPlural ~ FreqSingular, data=ratings.x), col="green")
 
 library(MASS)
 abline(lmsreg(FreqPlural ~ FreqSingular, data=ratings), col="blue")
+

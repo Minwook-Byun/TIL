@@ -90,3 +90,10 @@ const promise2 = Promise.resolve('성공2')
         console.log(promise);
     }
 })();
+
+<ul>
+    <li data-id="1" data-user-job ="programmer">Borma</li>
+    <li data-id="2" data-user-job ="designer">Porma</li>
+    <li data-id="3" data-user-job ="programmer">Boram</li>
+    <li data-id="4" data-user-job ="ceo">choram</li>
+</ul>
