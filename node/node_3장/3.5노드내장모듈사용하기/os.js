@@ -39,5 +39,5 @@ console.log('os.cpus().length', os.cpus().length)
 // ]
 // os.cpus().length 8
 console.log('메모리정보--------------------------------')
-console.log(os.freemem())
-console.log(os.totalmem())
+console.log(os.freemem()) //357261312
+console.log(os.totalmem()) //3693654016
