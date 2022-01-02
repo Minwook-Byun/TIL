@@ -1,0 +1,15 @@
+{
+  "name": "learn-express",
+  "version": "1.0.0",
+  "description": "익스프레스를 배우장!",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "author": "boram",
+  "license": "ISC"
+}
+
+
+
+
