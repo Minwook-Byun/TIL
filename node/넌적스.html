@@ -1,0 +1,56 @@
+<h1>{{title}}</h1>
+<p>Welcome to the {{title}}></p>
+<button class = "{{title}}" type = "submit"> 전송 </button>
+<input placeholder = "{{title}} 연습"/>
+
+<h1>Express</h1>
+<p>Welcome to Express</p>
+<button class ="Express" type ="submit">전송></button>
+<input placeholder ="Express 연습">
+
+{% set node = 'Node.js' %}
+{% set js = 'JavaScript' %}
+<p> {{node}}와 {{js}}</p>
+
+<p>{{'<strong>이스케이프</strong>'}}</p>
+<p>{{'<strong>이스케이프하지 않음</strong>' | safe}}</p>
+
+<ul>
+    {% set fruits = ['사과', '배'] %}
+    {% for item in fruits %}
+    <li> {{loop.index}}번째 {{ item }} </li> 
+    {% endfor %}
+</ul>
+
+{% comment %} HTML {% endcomment %}
+<ul>
+    <li>1번째 사과</li>
+    <li>2번째 배</li>
+</ul> 
+
+{% if isLoggedIn %}
+<div> 로그인 되었슴당! </div>
+{% else %}
+<div> 로그인이 필요합니당! </div>
+{% endif %}
+
+{% include "header.html" %}
+<main>
+    <h1>메인 파일</h1>
+    <p> 다른 파일을 include할 수 있다</p>
+</main>
+{% include "footer.html" %}
+
+{% extends 'layout.html' %}
+
+{% block content %}
+<main>
+    <p>내용입니다</p>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script src="/main.js"></script>
+{% endblock %}
+
+
