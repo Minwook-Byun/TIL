@@ -8,4 +8,3 @@ const spreadArray = ['Hankook', 'university']
 // ES6 스프레드 문법 
 const newArray = [...spreadArray,'of', 'foregin','sutudies']
 console.log(newArray); //[ 'Hankook', 'university', 'of', 'foregin', 'sutudies' ]
-
