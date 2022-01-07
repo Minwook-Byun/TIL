@@ -25,3 +25,4 @@ console.log(ES6버전()) //0
 function Rest에는못씀(...rest = []){
     console.log(rest);
 }
+//SyntaxError: Rest parameter may not have a default initializer
