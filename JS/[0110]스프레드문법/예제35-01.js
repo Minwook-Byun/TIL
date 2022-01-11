@@ -17,5 +17,3 @@ console.log(...{a:1, b:2})
 
 // 예제 35-02
 // const list = ...[1,2,3]; //SyntaxError: Unexpected token '...'
-
-

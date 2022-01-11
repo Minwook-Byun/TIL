@@ -31,4 +31,4 @@ console.log(city); //Seoul
 // 예제 36-22
 // Rest 프로퍼티
 const {x, ...rest} = {x:1, y:1, z:1};
-console.log(x, rest);
+console.log(x, rest); //1 { y: 1, z: 1 }
