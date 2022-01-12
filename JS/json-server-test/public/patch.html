@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <pre></pre>
+    <script>
+        //XMLHttpRequest 객체 생성 
+        const XHR = new XMLHttpRequest();
+
+        // HTTP 요청 초기화 
+        // todos 리소스에 id를 사용하여 todo를 삭제한다. 
+        XHR.open('DELETE', '/todos/4');
+
+        // HTTP 요청 전송 =>  지우는데 타입이 왜 필요해~~ 
+        XHR.send();
+
+        // load 이벤트는 요청이 성공적으로 완료된 경우 발생한다 
+        XHR.onload = () => {
+            //status 프로퍼티 값이 200이면 정상적으로 응답한 경우
+            if (XHR.status === 200) {
+                document.querySelector('pre').textContent = XHR.response;
+            } else {
+                console.log('에러나써요~~', XHR.status, XHR.statusText);
+            }
+        };
+    </script>
+</body>
+
+</html>
