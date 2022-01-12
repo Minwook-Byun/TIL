@@ -22,4 +22,4 @@ console.log(_changed); //{ x: 1, y: 100 }
 
 // 프로퍼티 추가 
 const _add = {...{x:1, y:2}, z:10};
-console.log(_add); 
+console.log(_add); //{ x: 1, y: 2, z: 10 }

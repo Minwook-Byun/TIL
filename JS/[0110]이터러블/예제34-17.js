@@ -23,9 +23,9 @@ for( const num of iter ){
 
 iter = fiboFunc(10);
 
-console.log(iter.next());
-console.log(iter.next());
-console.log(iter.next());
-console.log(iter.next());
-console.log(iter.next());
-console.log(iter.next());
+console.log(iter.next()); //{ value: 1, done : false }
+console.log(iter.next()); //{ value: 2, done: false }
+console.log(iter.next()); //{ value: 3, done: false }
+console.log(iter.next()); //{ value: 5, done: false }
+console.log(iter.next()); //{ value: 8, done: false }
+console.log(iter.next()); //{ value: 13, done: true }
