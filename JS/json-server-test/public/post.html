@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <pre></pre>
+    <script>
+        //XMLHttpRequest 객체 생성 
+        const XHR = new XMLHttpRequest();
+
+        // HTTP 요청 초기화 
+        // todos 리소스에 새로운 todo를 생성
+        XHR.open('POST', '/todos');
+
+        // HTTP 요청 몸체에 담아 서버로 전송할 페이로드의 MIME 타입을 지정
+        XHR.setRequestHeader('Content-Type', 'application/json');
+
+        // HTTP 요청 전송
+        // 새로운 todo를 생성하기 위해 페이로드를 서버에 전송해야 한다 
+        XHR.send(JSON.stringify({"id":4, "content": '앵귤러', "complete":true}));
+
+        // load 이벤트는 요청이 성공적으로 완료된 경우 발생한다 
+        XHR.onload = () => {
+            //status 프로퍼티 값이 200또는 201(created)이면 정상적으로 응답한 경우
+            if (XHR.status === 200 || XHR.status === 201) {
+                document.querySelector('pre').textContent = XHR.response;
+            } else {
+                console.log('에러나써요~~', XHR.status, XHR.statusText);
+            }
+        };
+    </script>
+</body>
+
+</html>
