@@ -1,7 +1,7 @@
-import MyComponent from './MyComponent';
+import Say from './say';
 
-function App() {
-  return <MyComponent />;
-}
+const App = () => {
+  return <Say />;
+};
 
 export default App;
