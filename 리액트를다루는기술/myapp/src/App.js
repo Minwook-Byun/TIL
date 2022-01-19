@@ -1,7 +1,7 @@
-import Say from './say';
+import EventPrac from './functional';
 
 const App = () => {
-  return <Say />;
+  return <EventPrac />;
 };
 
 export default App;
