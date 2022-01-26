@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import useState from "react";
+import "./App.css";
 
 function App() {
+  let name = "보람";
+  const handleButtonClick = () => {
+    name = "minwook";
+    console.log(name);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> 멋쟁이 {name}처럼</h1>
+      <button onClick={handleButtonClick}>이름변경</button>
     </div>
   );
 }
