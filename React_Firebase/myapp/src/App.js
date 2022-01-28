@@ -4,6 +4,7 @@ import Title from "./components/Title";
 import Modal from "./components/Modal";
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
   const [showEvents, setShowEvents] = useState(true);
   const [events, setEvents] = useState([
     { title: "welcome to the React", id: 1 },
@@ -20,13 +21,25 @@ function App() {
   };
   const subTitle = "이곳은 처음이지만 꼭 돌아온 것 같습니다";
   // setEvents 안에서 event를 쓰는 것은 badpractice
+  const handleModal = () => {
+    setShowModal(!showModal);
+  };
   return (
     <>
+      <button
+        onClick={() => {
+          handleModal();
+        }}
+      >
+        모달,,, 그래도 보시겠습니까?
+      </button>
       <Title title="props 연습중 입니다" subTitle={subTitle} />
-      <Modal>
-        <h1> 10% 할인 이벤트</h1>
-        <p>이벤트 코드:kjakdjakdnln2321</p>
-      </Modal>
+      {showModal && (
+        <Modal>
+          <h1> 10% 할인 이벤트</h1>
+          <p>이벤트 코드:kjakdjakdnln2321</p>
+        </Modal>
+      )}
       {showEvents && (
         <div>
           <button
