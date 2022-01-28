@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Title from "./components/Title";
 
 function App() {
   const [showEvents, setShowEvents] = useState(true);
@@ -19,6 +20,8 @@ function App() {
   // setEvents 안에서 event를 쓰는 것은 badpractice
   return (
     <>
+      <Title />
+
       {showEvents && (
         <div>
           <button
