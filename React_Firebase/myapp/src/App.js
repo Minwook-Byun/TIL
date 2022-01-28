@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Title from "./components/Title";
+import Modal from "./components/Modal";
 
 function App() {
   const [showEvents, setShowEvents] = useState(true);
@@ -22,7 +23,10 @@ function App() {
   return (
     <>
       <Title title="props 연습중 입니다" subTitle={subTitle} />
-
+      <Modal>
+        <h1> 10% 할인 이벤트</h1>
+        <p>이벤트 코드:kjakdjakdnln2321</p>
+      </Modal>
       {showEvents && (
         <div>
           <button
