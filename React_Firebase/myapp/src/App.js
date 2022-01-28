@@ -17,10 +17,11 @@ function App() {
     });
     console.log(id);
   };
+  const subTitle = "이곳은 처음이지만 꼭 돌아온 것 같습니다";
   // setEvents 안에서 event를 쓰는 것은 badpractice
   return (
     <>
-      <Title />
+      <Title title="props 연습중 입니다" subTitle={subTitle} />
 
       {showEvents && (
         <div>
