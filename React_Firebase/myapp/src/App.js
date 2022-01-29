@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Title from "./components/Title";
 import Modal from "./components/Modal";
+import Neweventform from "./NewEventForm";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -31,13 +32,12 @@ function App() {
           handleModal();
         }}
       >
-        모달,,, 그래도 보시겠습니까?
+        이벤트 추가
       </button>
       <Title title="props 연습중 입니다" subTitle={subTitle} />
       {showModal && (
         <Modal>
-          <h1> 10% 할인 이벤트</h1>
-          <p>이벤트 코드:kjakdjakdnln2321</p>
+          <Neweventform />
         </Modal>
       )}
       {showEvents && (
