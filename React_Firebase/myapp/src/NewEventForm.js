@@ -14,6 +14,19 @@ const Neweventform = () => {
     setDate(" ");
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const event = {
+      title: title, //state의 title
+      date: date,
+      id: Math.floor(Math.random() * 100), //random한 id 생성
+    };
+
+    console.log(event);
+    resetForm();
+  };
+
   return (
     <div>
       <form className="new-evnet-form" />
@@ -38,7 +51,7 @@ const Neweventform = () => {
           value={date}
         />
       </label>
-      <button> submit </button>
+      <button onClick={handleSubmit}> submit </button>
       <p> title: {title}</p>
       <p> date: {date}</p>
       <button
