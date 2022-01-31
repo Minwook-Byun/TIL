@@ -1,25 +1,39 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { useFetch } from "../hooks/useFetch";
 import "./TripList.css";
 
 export default function TripList() {
-  const [trips, setTrips] = useState([]);
+  //   const [trips, setTrips] = useState([]);
   const [URL, setURL] = useState("http://localhost:3000/trips");
-  useEffect(() => {
-    fetch(URL)
-      .then((res) => res.json())
-      .then((json) => setTrips(json));
-  }, [URL]);
+  const { data: trips } = useFetch(URL);
+
+  //   const fetchTrips = useCallback(async () => {
+  //     const res = await fetch(URL);
+  //     const json = await res.json();
+  //     setTrips(json);
+  //   }, [URL]);
+
+  //   useEffect(() => {
+  //     fetchTrips();
+  //   }, [fetchTrips]);
+
+  //   useEffect(() => {
+  //     fetch(URL)
+  //       .then((res) => res.json())
+  //       .then((json) => setTrips(json));
+  //   }, [URL]);
 
   return (
     <div className="trip-list">
       <h2>Trip List</h2>
       <ul>
-        {trips.map((trip) => (
-          <li key={trip.id}>
-            <h3>{trip.title}</h3>
-            <p> {trip.price}</p>
-          </li>
-        ))}
+        {trips &&
+          trips.map((trip) => (
+            <li key={trip.id}>
+              <h3>{trip.title}</h3>
+              <p> {trip.price}</p>
+            </li>
+          ))}
       </ul>
       <button onClick={() => setURL("http://localhost:3000/trips?loc=제주")}>
         제주도행
