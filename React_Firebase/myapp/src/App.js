@@ -7,11 +7,14 @@ import Neweventform from "./NewEventForm";
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [showEvents, setShowEvents] = useState(true);
-  const [events, setEvents] = useState([
-    { title: "welcome to the React", id: 1 },
-    { title: "also welcom to the ES6", id: 2 },
-    { title: "완강까지 화이팅~~~", id: 3 },
-  ]);
+  const [events, setEvents] = useState([]);
+
+  const addEvent = (event) => {
+    setEvents((prevEvents) => {
+      return [...prevEvents, event];
+    });
+  };
+
   const handleButtonClick = (id) => {
     setEvents((preEvents) => {
       return preEvents.filter((event) => {
@@ -37,7 +40,7 @@ function App() {
       <Title title="props 연습중 입니다" subTitle={subTitle} />
       {showModal && (
         <Modal>
-          <Neweventform />
+          <Neweventform addEvent={addEvent} />
         </Modal>
       )}
       {showEvents && (

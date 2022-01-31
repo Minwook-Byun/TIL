@@ -1,13 +1,14 @@
 import { useState } from "react";
 import "./NewEventForm.css";
 
-const Neweventform = () => {
+const Neweventform = ({ addEvent }) => {
   //   const handleChange = (e) => {
   //     console.log(e.target.value);
   //   };
 
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
+  const [location, SetLocation] = useState("");
 
   const resetForm = () => {
     setTitle(" ");
@@ -24,6 +25,7 @@ const Neweventform = () => {
     };
 
     console.log(event);
+    addEvent();
     resetForm();
   };
 
@@ -51,6 +53,20 @@ const Neweventform = () => {
           value={date}
         />
       </label>
+
+      <label>
+        <p>이벤트 장소</p>
+        <select
+          onChange={(e) => {
+            SetLocation(e.target.value);
+          }}
+        >
+          <option value="서울">서울</option>
+          <option value="부산">부산</option>
+          <option value="제주">제주</option>
+        </select>
+      </label>
+
       <button onClick={handleSubmit}> submit </button>
       <p> title: {title}</p>
       <p> date: {date}</p>
