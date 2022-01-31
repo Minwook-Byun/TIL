@@ -1,20 +1,27 @@
 {
-    "trips": [
-      {
-        "title": "2 Night Stay in 서울",
-        "price": "$195"
-      },
-      {
-        "title": "3 Night Stay in 부산",
-        "price": "$295"
-      },
-      {
-        "title": "4 Night Stay in 제주",
-        "price": "$345"
-      },
-      {
-        "title": "3 Night Stay in Random",
-        "price": "$325"
-      }
+    "trips": [{
+            "id": 1,
+            "title": "2 Night Stay in 서울",
+            "price": "$195",
+            "loc" : "내륙"
+        },
+        {
+            "id": 2,
+            "title": "3 Night Stay in 부산",
+            "price": "$295",
+            "loc" : "내륙"
+        },
+        {
+            "id": 3,
+            "title": "4 Night Stay in 제주",
+            "price": "$345",
+            "loc" : "제주"
+        },
+        {
+            "id": 4,
+            "title": "3 Night Stay in Random",
+            "price": "$325",
+            "loc" : "내륙"
+        }
     ]
-  }
+}
