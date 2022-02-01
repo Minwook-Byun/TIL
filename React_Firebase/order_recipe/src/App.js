@@ -1,41 +1,35 @@
-import "./App.css";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-// 라우터
-import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
-
-// 페이지 컴포넌트
-import Create from "./pages/create/Create";
-import Home from "./pages/home/Home";
-import Recipe from "./pages/recipe/Recipe";
-import Search from "./pages/search/Search";
-
-// 컴포넌트
+// page components
 import Navbar from "./components/Navbar";
+import Home from "./pages/home/Home";
+import Create from "./pages/create/Create";
+import Search from "./pages/search/Search";
+import Recipe from "./pages/recipe/Recipe";
+
+// styles
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      (
       <BrowserRouter>
+        <Navbar />
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-
           <Route path="/create">
             <Create />
           </Route>
-
           <Route path="/search">
             <Search />
           </Route>
-
-          <Route path="/recipe/:id">
+          <Route path="/recipes/:id">
             <Recipe />
           </Route>
         </Switch>
       </BrowserRouter>
-      )
     </div>
   );
 }
