@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import Article from "./pages/Article";
 
 function App() {
   return (
@@ -28,6 +29,12 @@ function App() {
 
           <Route path="/contact">
             <Contact />
+          </Route>
+
+          <Route path="/articles/:id">
+            {/* router parameter 바뀔 수 있다고(changable part)
+             이야기해주는것! */}
+            <Article />
           </Route>
         </Switch>
       </BrowserRouter>
