@@ -8,7 +8,7 @@ function Navbar() {
     <div className="navbar">
       <nav>
         <Link to="/" className="brand">
-          <h1>쉴만한 물가</h1>
+          <h1>☕☕☕</h1>
         </Link>
         <Link to="/create"></Link>
       </nav>
