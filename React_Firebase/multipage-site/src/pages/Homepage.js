@@ -1,5 +1,5 @@
+import { Link } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
-import React from "react";
 
 // 스타일링
 import "./Home.css";
@@ -22,6 +22,7 @@ const Homepage = () => {
           <div key={article.id} className="card">
             <h3>{article.title}</h3>
             <p>{article.author}</p>
+            <Link to={`/articles/${article.id}`}> 더보기...!</Link>
           </div>
         ))}
     </div>

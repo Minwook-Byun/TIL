@@ -1,5 +1,12 @@
 import "./App.css";
-import { BrowserRouter, Route, Switch, Link, NavLink } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+  Link,
+  NavLink,
+  Redirect,
+} from "react-router-dom";
 
 // 페이지 컴포넌트
 import Homepage from "./pages/Homepage";
@@ -35,6 +42,11 @@ function App() {
             {/* router parameter 바뀔 수 있다고(changable part)
              이야기해주는것! */}
             <Article />
+          </Route>
+
+          <Route path="*">
+            {/* 매치가 되지 않는 것들은 모두 다 여기로 */}
+            <Redirect to="/" />
           </Route>
         </Switch>
       </BrowserRouter>
