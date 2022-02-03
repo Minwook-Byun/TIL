@@ -1,5 +1,6 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useFetch } from "../../hooks/useFetch";
+import { useHistory } from "react-router-dom";
 
 // styles
 import "./Create.css";
@@ -11,6 +12,7 @@ export default function Create() {
   const [newIngredient, setNewIngredient] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const ingredientInput = useRef(null);
+  const history = useHistory();
 
   const { postData, data, error } = useFetch(
     "http://localhost:3000/recipes",
@@ -37,6 +39,12 @@ export default function Create() {
     setNewIngredient("");
     ingredientInput.current.focus();
   };
+
+  useEffect(() => {
+    if (data) {
+      history.push("/");
+    }
+  }, [data]); //useFetch로 받아온 data가 변경될 때마다 추가적으로 실행
 
   return (
     <div className="create">
