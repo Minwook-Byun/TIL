@@ -7,6 +7,8 @@ import Create from "./pages/create/Create";
 import Search from "./pages/search/Search";
 import Recipe from "./pages/recipe/Recipe";
 
+import { ThemeProvider } from "./context/ThemeContext";
+
 // styles
 import "./App.css";
 
