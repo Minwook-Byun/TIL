@@ -36,6 +36,20 @@
       ],
       "method": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse minima ex rem quis similique eum ratione quaerat, voluptas molestias ut repudiandae delectus voluptates. Eius esse at tenetur ab accusamus excepturi?",
       "cookingTime": "35 minutes"
+    },
+  
+    {
+      "title": "초간단 떡국 끓이기",
+      "ingredients": [
+        "사골육수",
+        "만두",
+        "떡",
+        "마늘",
+        "후추"
+      ],
+      "method": "사골곰탕\n1인분 기준 1봉이에요.\n떡은 물에 불려주시고\n쪽파 송송 썰어준비\n대파도 상관없어요~\n떡만 넣으면 떡국\n만두까지 넣으면 떡만두국\n기호에 따라 선택해 주세요.",
+      "cookingTime": "10 minutes",
+      "id": "sE_psV4"
     }
   ]
 }
