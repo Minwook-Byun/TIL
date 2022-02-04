@@ -225,3 +225,7 @@ JS/[0107]배열/예제27-21.js
 next/practice-next/package-lock.json
 JS/json-server-test/package-lock.json
 리액트를다루는기술/.editorconfig
+React_Firebase/my-money/package-lock.json
+.gitignore
+React_Firebase/my-money/package.json
+React_Firebase/my-money/src/firebase/config.js
