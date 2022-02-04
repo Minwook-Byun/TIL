@@ -15,10 +15,10 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route>
-            <Login path="/login" />
+          <Route path="/login">
+            <Login />
           </Route>
-          <Route path="/회원가입">
+          <Route path="/signup">
             <Signup />
           </Route>
         </Switch>
