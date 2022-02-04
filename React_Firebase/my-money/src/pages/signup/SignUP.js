@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useSignup } from "../../hooks/useSignup";
+
+// 스타일
 import styles from "./SignUP.module.css";
 
 const Signup = () => {
@@ -6,9 +9,12 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // 훅 사용하는 부분
+  const { signup, isPending, error } = useSignup();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, email, password);
+    signup(username, email, password);
   };
 
   return (
@@ -40,7 +46,13 @@ const Signup = () => {
           required
         />
       </label>
-      <button className="btn"> 회원가입 </button>
+      {!isPending && <button className="btn"> 회원가입 </button>}
+      {isPending && (
+        <button className="btn" disabled>
+          진행중입니다...
+        </button>
+      )}
+      {error && <p className="error">{error}</p>}
     </form>
   );
 };
