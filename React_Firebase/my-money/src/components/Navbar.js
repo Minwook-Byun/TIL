@@ -7,7 +7,9 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <ul>
-        <li className={styles.title}> 뱅큽 샐러드</li>
+        <li className={styles.title}>
+          <Link to="/">뱅큽 샐러드</Link>
+        </li>
 
         <li>
           <Link to="/login"> 로그인 </Link>
