@@ -1,60 +1,54 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 
-// 스타일
+// styles
 import styles from "./SignUP.module.css";
 
-const Signup = () => {
-  const [username, setUsername] = useState("");
+export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  // 훅 사용하는 부분
+  const [displayName, setDisplayName] = useState("");
   const { signup, isPending, error } = useSignup();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signup(username, email, password);
+    signup(email, password, displayName);
   };
 
   return (
-    <form className={styles["signup-form"]} onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles["signup-form"]}>
+      <h2>sign up</h2>
       <label>
-        <span>이름</span>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        <span> 이메일 </span>
+        <span>email:</span>
         <input
           type="email"
-          value={email}
           onChange={(e) => setEmail(e.target.value)}
-          required
+          value={email}
         />
       </label>
       <label>
-        <span> 비밀번호 </span>
+        <span>password:</span>
         <input
           type="password"
-          value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
+          value={password}
         />
       </label>
-      {!isPending && <button className="btn"> 회원가입 </button>}
+      <label>
+        <span>display name:</span>
+        <input
+          type="text"
+          onChange={(e) => setDisplayName(e.target.value)}
+          value={displayName}
+        />
+      </label>
+      {!isPending && <button className="btn">sign up</button>}
       {isPending && (
         <button className="btn" disabled>
-          진행중입니다...
+          loading
         </button>
       )}
-      {error && <p className="error">{error}</p>}
+      {error && <p>{error}</p>}
     </form>
   );
-};
-
-export default Signup;
+}
