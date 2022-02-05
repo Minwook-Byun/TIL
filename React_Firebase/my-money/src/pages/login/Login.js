@@ -1,14 +1,16 @@
 import React, { useState } from "react";
+import { useLogin } from "../../hooks/useLogin";
 
+// styles
 import styles from "./Login.module.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login, error, isPending } = useLogin();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
   };
 
   return (
@@ -28,7 +30,14 @@ const Login = () => {
         <input type="password" onChange={(e) => setPassword(e.target.value)} />
       </label>
 
-      <button className="btn"> 로그인 </button>
+      {error ? <p>{error}</p> : null}
+      {isPending ? (
+        <button className="btn" disabled>
+          로딩 중입니다
+        </button>
+      ) : (
+        <button className="btn">로그인</button>
+      )}
     </form>
   );
 };
