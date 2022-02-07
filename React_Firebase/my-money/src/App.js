@@ -11,26 +11,27 @@ function App() {
   const { authIsReady, user } = useAuthContext();
   return (
     <div className="App">
-      {authIsReady && (
-        <BrowserRouter>
-          <Navbar />
-          <Switch>
-            <Route exact path="/">
-              {/* 로그인이 되어 있지 않으면 로그인으로 */}
-              {!user && <Redirect to="/login" />}
-              {user && <Home />}
-            </Route>
-            <Route path="/login">
-              {user && <Redirect to="/" />}
-              {!user && <Login />}
-            </Route>
-            <Route path="/signup">
-              {user && <Redirect to="/" />}
-              {!user && <Signup />}
-            </Route>
-          </Switch>
-        </BrowserRouter>
-      )}
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+            {/* 로그인이 되어 있지 않으면 로그인으로 */}
+            {/* {!user && <Redirect to="/login" />} */}
+            {/* {user && <Home />} */}
+          </Route>
+          <Route path="/login">
+            <Login />
+            {/* {user && <Redirect to="/" />} */}
+            {/* {!user && <Login />} */}
+          </Route>
+          <Route path="/signup">
+            <Signup />
+            {/* {user && <Redirect to="/" />} */}
+            {/* {!user && <Signup />} */}
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
