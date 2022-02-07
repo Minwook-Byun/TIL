@@ -229,3 +229,4 @@ React_Firebase/my-money/package-lock.json
 .gitignore
 React_Firebase/my-money/package.json
 React_Firebase/my-money/src/firebase/config.js
+React_Firebase/kakyeboo/src/firebase/config.js
