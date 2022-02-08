@@ -1,9 +1,11 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
+import { useLogIn } from "../../hooks/useLogIn";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { logIn, error, isPending } = useLogIn();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,7 +32,8 @@ const Login = () => {
             value={password}
           />
         </label>
-        <button>로그인</button>
+        {isPending ? <button>로그인 중입니다</button> : <button>로그인</button>}
+        {error ? <p>{error}</p> : null}
       </form>
     </div>
   );
