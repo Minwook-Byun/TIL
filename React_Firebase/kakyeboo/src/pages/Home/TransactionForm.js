@@ -1,15 +1,23 @@
 import { useState } from "react";
+import { useFirebase } from "../../hooks/useFirebase";
 
 export default function TransactionForm() {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
+  const [message, setMessage] = useState("");
+  const { res, addContent, deleteContent } = useFirebase("transaction");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
+    addContent({
       name,
       amount,
     });
+    if (res.success) {
+      setName("");
+      setAmount("");
+    }
+    setMessage('성공적으로 추가되었습니다')
   };
 
   return (
