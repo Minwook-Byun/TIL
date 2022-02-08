@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSignUp } from "../../hooks/useSignUp";
 
 // styles
 import styles from "./SignUp.module.css";
@@ -7,10 +8,15 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
+  const { signup, isPending, error } = useSignUp();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password, displayName);
+    // signup
+    // import 해오는 것은 알았고 디스트럭처링까지는 알았으나 어떻게 써야할지 모름!
+    signup({ email, password, displayName });
+    // 걍 쓰면 됨!
+    // 왜 오브젝트로 넘겨줘야.. 에러가 안나지?
   };
 
   return (
@@ -20,7 +26,7 @@ export default function Signup() {
         <span>이메일:</span>
         <input
           type="email"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value.trim())}
           value={email}
         />
       </label>
@@ -28,7 +34,7 @@ export default function Signup() {
         <span>비밀번호:</span>
         <input
           type="password"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value.trim())}
           value={password}
         />
       </label>
@@ -40,7 +46,15 @@ export default function Signup() {
           value={displayName}
         />
       </label>
-      <button className="btn">회원가입</button>
+      {isPending ? (
+        <button className="btn" disabled>
+          진행 중...
+        </button>
+      ) : (
+        <button className="btn">회원가입</button>
+      )}
+
+      {error ? <p>{error}</p> : null}
     </form>
   );
 }
