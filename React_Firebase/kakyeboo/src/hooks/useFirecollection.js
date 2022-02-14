@@ -3,7 +3,7 @@ import { projectFirestore } from "../firebase/config";
 
 export const useFirecollection = (collection) => {
   const [contents, setContents] = useState(null);
-  const [err, setErr] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     let ref = projectFirestore.collection(collection);
@@ -18,11 +18,11 @@ export const useFirecollection = (collection) => {
 
         // update state
         setContents(results);
-        setErr(null);
+        setError(null);
       },
       (error) => {
         console.log(error);
-        setErr("could not fetch the data");
+        setError("could not fetch the data");
       }
     );
 
@@ -30,5 +30,5 @@ export const useFirecollection = (collection) => {
     return () => unsubscribe();
   }, [collection]);
 
-  return { contents, err };
+  return { contents, error };
 };

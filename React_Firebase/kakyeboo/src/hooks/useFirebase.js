@@ -72,8 +72,9 @@ export const useFirebase = (collection) => {
   const deleteContent = async (id) => {
     dispatch({ type: "IS_PENDING" });
     try {
-      // db.collection("cities").doc("DC").delete()
-      await ref.content(id).delete();
+      console.log(ref);
+      console.log(ref.doc(id));
+      await ref.doc(id).delete();
       dispatch({ type: "DELETE_CONTENT", payload: deleteContent });
     } catch (err) {
       console.log(err.message);
